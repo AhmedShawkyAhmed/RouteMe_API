@@ -10,16 +10,16 @@ class userUpdate extends Controller
     //
     public function update(Request $request)
     {
-        $id = $request->input('id');
-        $student = studentsModel::find($id);
+        // $id = $request->input('id');
+        // $student = studentsModel::find($id);
 
-        $result = $student->update($request->all());
-        if($result)
-        {
-            return ["Result"=>'Data has been Updated'];
-        }
-        else{
-            return ["Result"=>'Failed'];
-        }
+        // $result = $student->update($request->all());
+        // if($result)
+        // {
+        //     return ["Result"=>'Data has been Updated'];
+        // }
+        // else{
+        //     return ["Result"=>'Failed'];
+        // }
     }
 }

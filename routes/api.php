@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\addDispatcher;
+use App\Http\Controllers\addDriver;
+use App\Http\Controllers\addVendor;
+use App\Http\Controllers\companyRegister;
+use App\Http\Controllers\login;
 use App\Http\Controllers\studentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,10 +27,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post("data",[user::class,'getData']);
+Route::post("register",[companyRegister::class,'register']);
 
-Route::post("add",[studentController::class,'create']);
+Route::post("login",[login::class,'login']);
 
-Route::post("del",[userDelete::class,'deleteData']);
+Route::post("addDispatcher",[addDispatcher::class,'addDispatcher']);
 
-Route::post("update",[userUpdate::class,'update']);
+Route::post("addDriver",[addDriver::class,'AddDriver']);
+
+Route::post("addVendor",[addVendor::class,'addVendor']);
