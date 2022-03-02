@@ -38,3 +38,11 @@ Route::post("addVendor",[addVendor::class,'addVendor']);
 Route::post("deleteUser",[deleteUser::class,'deleteUser']);
 
 Route::post("verify",[verifyCode::class,'send']);
+
+Route::post("search",[search::class,'search']);
+
+Route::post("requestPickup",[requestPickup::class,'requestPickup']);
+
+Route::post("getBranches",[getBranches::class,'getBranches']);
+
+Route::post("addBranch",[addBranch::class,'addBranch']);

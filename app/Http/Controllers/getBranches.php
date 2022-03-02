@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class getBranches extends Controller
 {
-    public function getBranchers(Request $request)
+    public function getBranches(Request $request)
     {
         $vendorId = $request->input('vendorId');
 
