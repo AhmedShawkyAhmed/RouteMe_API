@@ -6,9 +6,13 @@ use App\Http\Controllers\addVendor;
 use App\Http\Controllers\companyRegister;
 use App\Http\Controllers\deleteUser;
 use App\Http\Controllers\login;
+use App\Http\Controllers\verifyCode;
+use App\Http\Controllers\search;
+use App\Http\Controllers\getBranches;
+use App\Http\Controllers\addBranch;
+use App\Http\Controllers\requestPickup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\verifyCode;
 
 /*
 |--------------------------------------------------------------------------

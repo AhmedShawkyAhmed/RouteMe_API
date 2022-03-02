@@ -11,15 +11,22 @@ class getBranches extends Controller
     {
         $vendorId = $request->input('vendorId');
 
-        $result = DB::select("select * from branches where vendorId  = $vendorId");
-
-        if (!$result) {
+        if($vendorId == ''){
             return [
-                "status"=>500,
-                "message"=>'Faild to Get Branches'
+                "status"=>405,
+                "message"=>'vendorId is Required'
             ];
-        }else {
-            return response(json_encode($result),200,['Content-Type' => 'application/json;charset=UTF-8']);
+        }else{
+            $result = DB::select("select * from branches where vendorId  = $vendorId");
+
+            if (!$result){
+                return [
+                    "status"=>500,
+                    "message"=>'No Branches Found'
+                ];
+            }else {
+                return response(json_encode($result),200,['Content-Type' => 'application/json;charset=UTF-8']);
+            }
         }
     }
 }

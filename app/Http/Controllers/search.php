@@ -16,15 +16,31 @@ class search extends Controller
         if($vendorId == ''){
             return [
                 "status"=>405,
-                "message"=>'VendorId is Required'
+                "message"=>'vendorId is Required'
             ];
         }else{
             if($orderId == ''){
                 $result = DB::select("select * from orders where vendorId  = $vendorId");
-                return response(json_encode($result),200,['Content-Type' => 'application/json;charset=UTF-8']);
+                if($result){
+                    return response(json_encode($result),200,['Content-Type' => 'application/json;charset=UTF-8']);
+                }
+                else{
+                    return [
+                        "status"=>404,
+                        "message"=>'vendorId Not Found'
+                    ];
+                }
             }else{
                 $result = DB::select("select * from orders where vendorId  = $vendorId and orderId  = $orderId");
-                return response(json_encode($result),200,['Content-Type' => 'application/json;charset=UTF-8']);
+                if($result){
+                    return response(json_encode($result),200,['Content-Type' => 'application/json;charset=UTF-8']);
+                }
+                else{
+                    return [
+                        "status"=>404,
+                        "message"=>'No Orders Founded'
+                    ];
+                }
             }
         }
     }
