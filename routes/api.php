@@ -11,6 +11,7 @@ use App\Http\Controllers\search;
 use App\Http\Controllers\getBranches;
 use App\Http\Controllers\addBranch;
 use App\Http\Controllers\requestPickup;
+use App\Http\Controllers\resetPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,8 @@ Route::post("addVendor",[addVendor::class,'addVendor']);
 Route::post("deleteUser",[deleteUser::class,'deleteUser']);
 
 Route::post("verify",[verifyCode::class,'send']);
+
+Route::post("resetPassword",[resetPassword::class,'resetPassword']);
 
 Route::post("search",[search::class,'search']);
 
