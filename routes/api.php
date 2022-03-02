@@ -4,13 +4,11 @@ use App\Http\Controllers\addDispatcher;
 use App\Http\Controllers\addDriver;
 use App\Http\Controllers\addVendor;
 use App\Http\Controllers\companyRegister;
+use App\Http\Controllers\deleteUser;
 use App\Http\Controllers\login;
-use App\Http\Controllers\studentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\user;
-use App\Http\Controllers\userDelete;
-use App\Http\Controllers\userUpdate;
+use App\Http\Controllers\verifyCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +34,7 @@ Route::post("addDispatcher",[addDispatcher::class,'addDispatcher']);
 Route::post("addDriver",[addDriver::class,'AddDriver']);
 
 Route::post("addVendor",[addVendor::class,'addVendor']);
+
+Route::post("deleteUser",[deleteUser::class,'deleteUser']);
+
+Route::post("verify",[verifyCode::class,'send']);

@@ -16,14 +16,17 @@ class login extends Controller
 
         if($server == ''){
             return [
+                "status"=>405,
                 "message"=>'Server Name is Required'
             ];
         }else if($email == ''){
             return [
+                "status"=>405,
                 "message"=>'Email is Required'
             ];
         }else if($password == ''){
             return [
+                "status"=>405,
                 "message"=>'Password is Required'
             ];
         }else{
