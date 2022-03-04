@@ -9,5 +9,10 @@ class branch extends Model
 {
     use HasFactory;
     protected $table = 'branches';
-    protected $fillable = ['vendorId','branchName','phone','location'];
+    protected $fillable = [
+        'vendorId',
+        'branchName',
+        'phone',
+        'location',
+    ];
 }

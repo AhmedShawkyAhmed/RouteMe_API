@@ -11,64 +11,63 @@ class requestPickup extends Controller
     //
     public function requestPickup(Request $request)
     {
-        $PickUp = new order();
+        $pickUp = new order();
     
-        $PickUp->clientName = $request->input('clientName');
-        $PickUp->clientPhone = $request->input('clientPhone');
-        $PickUp->itemCount = $request->input('itemCount');
-        $PickUp->price = $request->input('total');
-        $PickUp->branchId = $request->input('branchId');
-        $PickUp->vendorId = $request->input('vendorId');
-        $PickUp->clientLocation = $request->input('clientLocation');
+        $pickUp->clientName = $request->input('clientName');
+        $pickUp->clientPhone = $request->input('clientPhone');
+        $pickUp->itemCount = $request->input('itemCount');
+        $pickUp->price = $request->input('total');
+        $pickUp->branchId = $request->input('branchId');
+        $pickUp->vendorId = $request->input('vendorId');
+        $pickUp->clientLocation = $request->input('clientLocation');
 
-        if($PickUp->clientName == ''){
+        if($pickUp->clientName == ''){
             return [
                 "status"=>405,
-                "message"=>'Client Name is Required'
+                "message"=>'Client Name is Required',
             ];
-        }else if($PickUp->clientPhone ==''){
+        }else if($pickUp->clientPhone ==''){
             return [
                 "status"=>405,
-                "message"=>'Client phone is Required'
+                "message"=>'Client phone is Required',
             ];
-        }else if($PickUp->itemCount ==''){
+        }else if($pickUp->itemCount ==''){
             return [
                 "status"=>405,
-                "message"=>'Item count is Required'
+                "message"=>'Item count is Required',
             ];
-        }else if($PickUp->price ==''){
+        }else if($pickUp->price ==''){
             return [
                 "status"=>405,
-                "message"=>'price is Required'
+                "message"=>'price is Required',
             ];
-        }else if($PickUp->branchId ==''){
+        }else if($pickUp->branchId ==''){
             return [
                 "status"=>405,
-                "message"=>'branchId is Required'
+                "message"=>'branchId is Required',
             ];
-        }else if($PickUp->vendorId ==''){
+        }else if($pickUp->vendorId ==''){
             return [
                 "status"=>405,
-                "message"=>'vendorId is Required'
+                "message"=>'vendorId is Required',
             ];
-        }else if($PickUp->clientLocation ==''){
+        }else if($pickUp->clientLocation ==''){
             return [
                 "status"=>405,
-                "message"=>'clientLocation is Required'
+                "message"=>'clientLocation is Required',
             ];
         }else{
-            $result = $PickUp->save();
+            $result = $pickUp->save();
             if($result)
             {
                 return [
                     "status"=>200,
-                    "message"=>'Pick Up Request Created Successfully'
+                    "message"=>'Pick Up Request Created Successfully',
                 ];
-            }
-            else{
+            }else{
                 return [
                     "status"=>500,
-                    "message"=>'Failed to Create'
+                    "message"=>'Failed to Create Pickup Request',
                 ];
             }
         }

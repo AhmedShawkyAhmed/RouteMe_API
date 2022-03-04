@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Mail;
 class verifyCode extends Controller
 {
     //
-    public function send(Request $request)
+    public function verifyCode(Request $request)
     {
         $email = $request->input('email');
         $code = $request->input('code');
@@ -17,17 +17,17 @@ class verifyCode extends Controller
         if($email == ''){
             return [
                 "status"=>405,
-                "message"=>'email is Required'
+                "message"=>'email is Required',
             ];
         }else if($code == ''){
             return [
                 "status"=>405,
-                "message"=>'code is Required'
+                "message"=>'code is Required',
             ];
         }else if($name == ''){
             return [
                 "status"=>405,
-                "message"=>'name is Required'
+                "message"=>'name is Required',
             ];
         }else{
             $details =[
@@ -43,7 +43,7 @@ class verifyCode extends Controller
             });
             return [
                 "status"=>200,
-                "message"=>'Email Sended Successfully'
+                "message"=>'Email Sended Successfully',
             ];
         }
     }

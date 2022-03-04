@@ -5,21 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class getBranches extends Controller
+class getTasks extends Controller
 {
-    public function getBranches(Request $request)
+    public function getTasks(Request $request)
     {
-        $vendorId = $request->input('vendorId');
+        $dispatcherId = $request->input('dispatcherId');
 
-        if($vendorId == ''){
+        if($dispatcherId == ''){
             return [
                 "status"=>405,
-                "message"=>'vendorId is Required',
+                "message"=>'dispatcherId is Required',
             ];
         }else{
-            $result = DB::select("select * from branches where vendorId  = $vendorId");
+            $result = DB::select("select * from tasks where dispatcherId  = $dispatcherId");
 
-            if (!$result){
+            if ($result){
                 return response(
                     json_encode($result),
                     200,
@@ -30,7 +30,7 @@ class getBranches extends Controller
             }else {
                 return [
                     "status"=>404,
-                    "message"=>'No Branche Found',
+                    "message"=>'No Task Found',
                 ];
             }
         }

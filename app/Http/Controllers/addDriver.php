@@ -18,7 +18,7 @@ class addDriver extends Controller
         $driver->password = $request->input('password');
         $driver->phone = $request->input('phone');
 
-        $result = DB::select("select * from drivers where server = '$driver->server' and email = '$driver->email' limit 1");
+        $result = DB::select("select * from drivers where server = '$driver->server' and email = '$driver->email'");
 
         if($result){
             return [
@@ -29,27 +29,27 @@ class addDriver extends Controller
             if($driver->name == ''){
                 return [
                     "status"=>405,
-                    "message"=>'Diver Name is Required'
+                    "message"=>'Diver Name is Required',
                 ];
             }else if($driver->server ==''){
                 return [
                     "status"=>405,
-                    "message"=>'Server Name is Required'
+                    "message"=>'Server Name is Required',
                 ];
             }else if($driver->email ==''){
                 return [
                     "status"=>405,
-                    "message"=>'Email is Required'
+                    "message"=>'Email is Required',
                 ];
             }else if($driver->password ==''){
                 return [
                     "status"=>405,
-                    "message"=>'Password is Required'
+                    "message"=>'Password is Required',
                 ];
             }else if($driver->phone ==''){
                 return [
                     "status"=>405,
-                    "message"=>'Phone Number is Required'
+                    "message"=>'Phone Number is Required',
                 ];
             }else{
                 $result = $driver->save();
@@ -57,13 +57,12 @@ class addDriver extends Controller
                 {
                     return [
                         "status"=>200,
-                        "message"=>'Driver Account Created Successfully'
+                        "message"=>'Driver Account Created Successfully',
                     ];
-                }
-                else{
+                }else{
                     return [
                         "status"=>500,
-                        "message"=>'Failed'
+                        "message"=>'Failed to Create Driver Account',
                     ];
                 }
             }

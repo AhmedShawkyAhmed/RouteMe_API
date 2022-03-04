@@ -3,15 +3,20 @@
 use App\Http\Controllers\addDispatcher;
 use App\Http\Controllers\addDriver;
 use App\Http\Controllers\addVendor;
-use App\Http\Controllers\companyRegister;
 use App\Http\Controllers\deleteUser;
 use App\Http\Controllers\login;
 use App\Http\Controllers\verifyCode;
-use App\Http\Controllers\search;
 use App\Http\Controllers\getBranches;
 use App\Http\Controllers\addBranch;
+use App\Http\Controllers\createTask;
+use App\Http\Controllers\getTasks;
+use App\Http\Controllers\getUsers;
+use App\Http\Controllers\getVendorOrders;
+use App\Http\Controllers\register;
 use App\Http\Controllers\requestPickup;
 use App\Http\Controllers\resetPassword;
+use App\Http\Controllers\searchOrders;
+use App\Http\Controllers\updateUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,26 +35,36 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post("register",[companyRegister::class,'register']);
+Route::post("register",[register::class,'register']);
 
 Route::post("login",[login::class,'login']);
 
-Route::post("addDispatcher",[addDispatcher::class,'addDispatcher']);
-
-Route::post("addDriver",[addDriver::class,'AddDriver']);
-
-Route::post("addVendor",[addVendor::class,'addVendor']);
-
-Route::post("deleteUser",[deleteUser::class,'deleteUser']);
-
-Route::post("verify",[verifyCode::class,'send']);
+Route::post("verifyCode",[verifyCode::class,'verifyCode']);
 
 Route::post("resetPassword",[resetPassword::class,'resetPassword']);
 
-Route::post("search",[search::class,'search']);
+Route::post("addDispatcher",[addDispatcher::class,'addDispatcher']);
+
+Route::post("addDriver",[addDriver::class,'addDriver']);
+
+Route::post("addVendor",[addVendor::class,'addVendor']);
+
+Route::post("updateUser",[updateUser::class,'updateUser']);
+
+Route::post("deleteUser",[deleteUser::class,'deleteUser']);
+
+Route::post("getVendorOrders",[getVendorOrders::class,'getVendorOrders']);
 
 Route::post("requestPickup",[requestPickup::class,'requestPickup']);
 
 Route::post("getBranches",[getBranches::class,'getBranches']);
 
 Route::post("addBranch",[addBranch::class,'addBranch']);
+
+Route::post("getTasks",[getTasks::class,'getTasks']);
+
+Route::post("getUsers",[getUsers::class,'getUsers']);
+
+Route::post("searchOrders",[searchOrders::class,'searchOrders']);
+
+Route::post("createTask",[createTask::class,'createTask']);

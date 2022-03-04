@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\company;
+use Illuminate\Http\Request;
 use App\Models\dispatcher;
 use App\Models\driver;
 use App\Models\vendor;
-use Illuminate\Http\Request;
 
-class resetPassword extends Controller
+class updateUser extends Controller
 {
-    public function resetPassword(Request $request)
+    public function updateUser(Request $request)
     {
         $type = $request->input('type');
         $id = $request->input('id');
@@ -18,7 +17,7 @@ class resetPassword extends Controller
         if($type == ''){
             return [
                 "status"=>405,
-                "message"=>'type is Required [ owner - driver - dispatcher - vendor ]',
+                "message"=>'type is Required [ dispatcher - driver - vendor ]',
             ];
         }else if($id == ''){
             return [
@@ -26,27 +25,13 @@ class resetPassword extends Controller
                 "message"=>'id is Required',
             ];
         }else{
-            if($type == 'owner' && !is_null(company::find($id))){
-                $company = company::find($id);
-                $result = $company->update($request->all());
-                if($result){
-                    return [
-                        "status"=>200,
-                        "message"=>'Password Updated Successfully',
-                    ];
-                }else{
-                    return [
-                        "status"=>404,
-                        "message"=>'Not Found',
-                    ];
-                }
-            }else if($type == 'dispatcher' && !is_null(dispatcher::find($id))){
+            if($type == 'dispatcher' && !is_null(dispatcher::find($id))){
                 $dispatcher = dispatcher::find($id);
                 $result = $dispatcher->update($request->all());
                 if($result){
                     return [
                         "status"=>200,
-                        "message"=>'Password Updated Successfully',
+                        "message"=>'Dispatcher Data Updated Successfully',
                     ];
                 }else{
                     return [
@@ -60,7 +45,7 @@ class resetPassword extends Controller
                 if($result){
                     return [
                         "status"=>200,
-                        "message"=>'Password Updated Successfully',
+                        "message"=>'Driver Data Updated Successfully',
                     ];
                 }else{
                     return [
@@ -74,7 +59,7 @@ class resetPassword extends Controller
                 if($result){
                     return [
                         "status"=>200,
-                        "message"=>'Password Updated Successfully',
+                        "message"=>'Vendor Data Updated Successfully',
                     ];
                 }else{
                     return [

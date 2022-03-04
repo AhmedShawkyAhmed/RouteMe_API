@@ -18,38 +18,38 @@ class addVendor extends Controller
         $vendor->password = $request->input('password');
         $vendor->brandImage = $request->file('brandImage')->store('apiImages');
 
-        $result = DB::select("select * from vendors where server = '$vendor->server' or email = '$vendor->email' limit 1");
+        $result = DB::select("select * from vendors where server = '$vendor->server' or email = '$vendor->email'");
 
         if($result){
             return [
                 "status"=>408,
-                "message"=>'Account Already Exist'
+                "message"=>'Account Already Exist',
             ];
         }else{
             if($vendor->brandName == ''){
                 return [
                     "status"=>405,
-                    "message"=>'Brand Name is Required'
+                    "message"=>'Brand Name is Required',
                 ];
             }else if($vendor->server ==''){
                 return [
                     "status"=>405,
-                    "message"=>'Server Name is Required'
+                    "message"=>'Server Name is Required',
                 ];
             }else if($vendor->email ==''){
                 return [
                     "status"=>405,
-                    "message"=>'Email is Required'
+                    "message"=>'Email is Required',
                 ];
             }else if($vendor->password ==''){
                 return [
                     "status"=>405,
-                    "message"=>'Password is Required'
+                    "message"=>'Password is Required',
                 ];
             }else if($vendor->brandImage ==''){
                 return [
                     "status"=>405,
-                    "message"=>'Brand Image is Required'
+                    "message"=>'Brand Image is Required',
                 ];
             }else{
                 $result = $vendor->save();
@@ -57,13 +57,12 @@ class addVendor extends Controller
                 {
                     return [
                         "status"=>200,
-                        "message"=>'Vendor Account Created Successfully'
+                        "message"=>'Vendor Account Created Successfully',
                     ];
-                }
-                else{
+                }else{
                     return [
                         "status"=>500,
-                        "message"=>'Failed'
+                        "message"=>'Failed to Create Vendor Account',
                     ];
                 }
             }

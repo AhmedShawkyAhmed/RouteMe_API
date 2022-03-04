@@ -9,5 +9,11 @@ class dispatcher extends Model
 {
     use HasFactory;
     protected $table = 'dispatchers';
-    protected $fillable = ['server','name','email','password','phone'];
+    protected $fillable = [
+        'server',
+        'name',
+        'email',
+        'password',
+        'phone',
+    ];
 }

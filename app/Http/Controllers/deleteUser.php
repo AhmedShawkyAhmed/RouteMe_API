@@ -16,51 +16,51 @@ class deleteUser extends Controller
         if($id == ''){
             return [
                 "status"=>405,
-                "message"=>'User id is Required'
+                "message"=>'User id is Required',
             ];
         }else if($type == ''){
             return [
                 "status"=>405,
-                "message"=>'type is Required [ driver - dispatcher - vendor ]'
+                "message"=>'type is Required [ driver - dispatcher - vendor ]',
             ];
         }else{
             if($type == 'driver'){
                 $result = DB::delete("delete from drivers where id = $id");
-                if(!$result){
+                if($result){
                     return [
-                        "status"=>404,
-                        "message"=>'Not Found'
+                        "status"=>200,
+                        "message"=>'Driver Account Deleted Successfully',
                     ];
                 }else{
                     return [
-                        "status"=>200,
-                        "message"=>'Driver Account Deleted Successfully'
+                        "status"=>404,
+                        "message"=>'Not Found',
                     ];
                 }
             }else if($type == 'dispatcher'){
                 $result = DB::delete("delete from dispatchers where id = $id");
-                if(!$result){
+                if($result){
                     return [
-                        "status"=>404,
-                        "message"=>'Not Found'
+                        "status"=>200,
+                        "message"=>'Dispatcher Account Deleted Successfully',
                     ];
                 }else{
                     return [
-                        "status"=>200,
-                        "message"=>'Dispatcher Account Deleted Successfully'
+                        "status"=>404,
+                        "message"=>'Not Found',
                     ];
                 }
             }else if($type == 'vendor'){
                 $result = DB::delete("delete from vendors where id = $id");
-                if(!$result){
+                if($result){
                     return [
-                        "status"=>404,
-                        "message"=>'Not Found'
+                        "status"=>200,
+                        "message"=>'Vendor Account Deleted Successfully',
                     ];
                 }else{
                     return [
-                        "status"=>200,
-                        "message"=>'Vendor Account Deleted Successfully'
+                        "status"=>404,
+                        "message"=>'Not Found',
                     ];
                 }
             }
