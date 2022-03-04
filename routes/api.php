@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\user;
 use App\Http\Controllers\userDelete;
 use App\Http\Controllers\userUpdate;
+use App\Http\Controllers\getTasks_Driver;
+use App\Http\Controllers\OrderStatus_Driver;
+use App\Http\Controllers\TaskStatus_Driver;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +33,9 @@ Route::post("add",[studentController::class,'create']);
 Route::post("del",[userDelete::class,'deleteData']);
 
 Route::post("update",[userUpdate::class,'update']);
+
+Route::post("getTasks_Driver",[getTasks_Driver::class,'getTasks_Driver']);
+
+Route::post("OrderStatus_Driver",[OrderStatus_Driver::class,'OrderStatus_Driver']);
+
+Route::post("TaskStatus_Driver",[TaskStatus_Driver::class,'TaskStatus_Driver']);
