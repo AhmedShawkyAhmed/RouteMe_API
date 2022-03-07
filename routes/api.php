@@ -9,13 +9,15 @@ use App\Http\Controllers\verifyCode;
 use App\Http\Controllers\getBranches;
 use App\Http\Controllers\addBranch;
 use App\Http\Controllers\createTask;
-use App\Http\Controllers\getTasks;
+use App\Http\Controllers\getDispatcherTasks;
+use App\Http\Controllers\getDriverTasks;
 use App\Http\Controllers\getUsers;
 use App\Http\Controllers\getVendorOrders;
 use App\Http\Controllers\register;
 use App\Http\Controllers\requestPickup;
 use App\Http\Controllers\resetPassword;
 use App\Http\Controllers\searchOrders;
+use App\Http\Controllers\taskStatus;
 use App\Http\Controllers\updateUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -61,10 +63,14 @@ Route::post("getBranches",[getBranches::class,'getBranches']);
 
 Route::post("addBranch",[addBranch::class,'addBranch']);
 
-Route::post("getTasks",[getTasks::class,'getTasks']);
+Route::post("getDispatcherTasks",[getDispatcherTasks::class,'getDispatcherTasks']);
 
 Route::post("getUsers",[getUsers::class,'getUsers']);
 
 Route::post("searchOrders",[searchOrders::class,'searchOrders']);
 
 Route::post("createTask",[createTask::class,'createTask']);
+
+Route::post("getDriverTasks",[getDriverTasks::class,'getDriverTasks']);
+
+Route::post("taskStatus",[taskStatus::class,'taskStatus']);

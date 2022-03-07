@@ -5,19 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class getTasks extends Controller
+class getDriverTasks extends Controller
 {
-    public function getTasks(Request $request)
+    public function getDriverTasks(Request $request)
     {
-        $dispatcherId = $request->input('dispatcherId');
+        $driverId = $request->input('driverId');
 
-        if($dispatcherId == ''){
+        if($driverId == ''){
             return [
                 "status"=>405,
-                "message"=>'dispatcherId is Required',
+                "message"=>'driverId is Required',
             ];
         }else{
-            $result = DB::select("select * from tasks where dispatcherId  = $dispatcherId");
+            $result = DB::select("select * from tasks where driverId  = $driverId");
 
             if ($result){
                 return response(
