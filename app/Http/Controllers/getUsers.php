@@ -20,7 +20,7 @@ class getUsers extends Controller
             if($type == 'dispatcher'){
                 $result = DB::select("select * from dispatchers");
 
-                if (!$result){
+                if ($result){
                     return response(
                         json_encode($result),
                         200,
@@ -37,7 +37,7 @@ class getUsers extends Controller
             }else if($type == 'driver'){
                 $result = DB::select("select * from drivers");
 
-                if (!$result){
+                if ($result){
                     return response(
                         json_encode($result),
                         200,
@@ -54,7 +54,7 @@ class getUsers extends Controller
             }else if($type == 'vendor'){
                 $result = DB::select("select * from vendors");
 
-                if (!$result){
+                if ($result){
                     return response(
                         json_encode($result),
                         200,
