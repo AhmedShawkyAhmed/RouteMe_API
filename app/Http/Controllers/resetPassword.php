@@ -14,6 +14,7 @@ class resetPassword extends Controller
 
         $type = $request->input('type');
         $id = $request->input('id');
+        $pass = $request->input('password');
 
         if($type == ''){
             return [
@@ -24,6 +25,11 @@ class resetPassword extends Controller
             return [
                 "status"=>405,
                 "message"=>'id is Required',
+            ];
+        }else if($pass == ''){
+            return [
+                "status"=>405,
+                "message"=>'password is Required',
             ];
         }else{
             if($type == 'owner' && !is_null(company::find($id))){
