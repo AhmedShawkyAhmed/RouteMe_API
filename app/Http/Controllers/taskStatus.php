@@ -28,12 +28,12 @@ class taskStatus extends Controller
         }else if($status == ''){
             return [
                 "status"=>405,
-                "message"=>'taskStatus is Required',
+                "message"=>'status is Required',
             ];
         }else if($state == ''){
             return [
                 "status"=>405,
-                "message"=>'orderStatus is Required',
+                "message"=>'state is Required',
             ];
         }else{
             if(!is_null(Task::find($taskId)) && !is_null(Order::find($orderId))){
