@@ -12,8 +12,8 @@ class taskStatus extends Controller
 
         $taskId = $request->input('taskId');
         $orderId = $request->input('orderId');
-        $taskStatus = $request->input('taskStatus');
-        $orderStatus = $request->input('orderStatus');
+        $status = $request->input('status');
+        $state = $request->input('state');
 
         if($taskId == ''){
             return [
@@ -25,12 +25,12 @@ class taskStatus extends Controller
                 "status"=>405,
                 "message"=>'orderId is Required',
             ];
-        }else if($taskStatus == ''){
+        }else if($status == ''){
             return [
                 "status"=>405,
                 "message"=>'taskStatus is Required',
             ];
-        }else if($orderStatus == ''){
+        }else if($state == ''){
             return [
                 "status"=>405,
                 "message"=>'orderStatus is Required',
