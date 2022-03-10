@@ -56,10 +56,10 @@ class createTask extends Controller
                     "status"=>405,
                     "message"=>'clientName is Required',
                 ];
-            }else if($task->clentPhone ==''){
+            }else if($task->clientPhone ==''){
                 return [
                     "status"=>405,
-                    "message"=>'clentPhone is Required',
+                    "message"=>'clientPhone is Required',
                 ];
             }else if($task->itemCount ==''){
                 return [
