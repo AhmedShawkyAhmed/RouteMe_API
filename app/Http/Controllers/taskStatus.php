@@ -12,8 +12,8 @@ class taskStatus extends Controller
 
         $taskId = $request->input('taskId');
         $orderId = $request->input('orderId');
-        $taskStatus = $request->input('status');
-        $orderStatus = $request->input('state');
+        $taskStatus = $request->input('taskStatus');
+        $orderStatus = $request->input('orderStatus');
 
         if($taskId == ''){
             return [
@@ -36,9 +36,11 @@ class taskStatus extends Controller
                 "message"=>'orderStatus is Required',
             ];
         }else{
-            if(!is_null(Task::find($taskId))){
+            if(!is_null(Task::find($taskId)) && !is_null(Order::find($orderId))){
                 $task = Task::find($taskId);
                 $result = $task->update($request->all());
+                $order = Order::find($orderId);
+                $result = $order->update($request->all());
                 if($result){
                     return [
                         "status"=>200,
@@ -48,21 +50,6 @@ class taskStatus extends Controller
                     return [
                         "status"=>404,
                         "message"=>'Task not Found',
-                    ];
-                }
-            }
-            if(!is_null(Order::find($orderId))){
-                $order = Order::find($orderId);
-                $result = $order->update($request->all());
-                if($result){
-                    return [
-                        "status"=>200,
-                        "message"=>'Order Status Updated Successfully',
-                    ];
-                }else{
-                    return [
-                        "status"=>404,
-                        "message"=>'Order not Found',
                     ];
                 }
             }
