@@ -14,7 +14,7 @@ class requestPickup extends Controller
         $pickUp->clientName = $request->input('clientName');
         $pickUp->clientPhone = $request->input('clientPhone');
         $pickUp->itemCount = $request->input('itemCount');
-        $pickUp->price = $request->input('total');
+        $pickUp->price = $request->input('price');
         $pickUp->branchId = $request->input('branchId');
         $pickUp->vendorId = $request->input('vendorId');
         $pickUp->lon = $request->input('lon');
