@@ -32,7 +32,7 @@ class getVendorOrders extends Controller
                 }else{
                     return [
                         "status"=>404,
-                        "message"=>'vendorId Not Found',
+                        "message"=>'No Orders Founded',
                     ];
                 }
             }else{
