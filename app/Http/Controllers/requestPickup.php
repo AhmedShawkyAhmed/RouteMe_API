@@ -20,6 +20,7 @@ class requestPickup extends Controller
         $pickUp->lon = $request->input('lon');
         $pickUp->lat = $request->input('lat');
         $pickUp->address = $request->input('address');
+        $pickUp->state = $request->input('state');
 
         if($pickUp->clientName == ''){
             return [
@@ -65,6 +66,11 @@ class requestPickup extends Controller
             return [
                 "status"=>405,
                 "message"=>'address is Required',
+            ];
+        }else if($pickUp->state ==''){
+            return [
+                "status"=>405,
+                "message"=>'state is Required',
             ];
         }else{
             $result = $pickUp->save();
