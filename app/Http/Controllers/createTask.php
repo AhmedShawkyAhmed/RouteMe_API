@@ -15,7 +15,7 @@ class createTask extends Controller
         $task->driverId = $request->input('driverId');
         $task->dispatcherId = $request->input('dispatcherId');
         $task->clientName = $request->input('clientName');
-        $task->clentPhone = $request->input('clentPhone');
+        $task->clientPhone = $request->input('clientPhone');
         $task->itemCount = $request->input('itemCount');
         $task->price = $request->input('price');
         $task->vendorId = $request->input('vendorId');

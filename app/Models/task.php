@@ -14,7 +14,7 @@ class task extends Model
         'driverId',
         'dispatcherId',
         'clientName',
-        'clentPhone',
+        'clientPhone',
         'itemCount',
         'price',
         'vendorId',
