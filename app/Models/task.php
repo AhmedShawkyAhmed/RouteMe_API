@@ -25,6 +25,6 @@ class task extends Model
         'start',
         'end',
         'comment',
-        'state',
+        'status',
     ];
 }

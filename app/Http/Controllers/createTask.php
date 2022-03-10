@@ -26,7 +26,7 @@ class createTask extends Controller
         $task->start = $request->input('start');
         $task->end = $request->input('end');
         $task->comment = $request->input('comment');
-        $task->state = $request->input('state');
+        $task->status = $request->input('status');
 
         $result = DB::select("select * from tasks where orderNumber = '$task->orderNumber'");
         
@@ -111,7 +111,7 @@ class createTask extends Controller
                     "status"=>405,
                     "message"=>'comment is Required',
                 ];
-            }else if($task->state ==''){
+            }else if($task->status ==''){
                 return [
                     "status"=>405,
                     "message"=>'status is Required',
