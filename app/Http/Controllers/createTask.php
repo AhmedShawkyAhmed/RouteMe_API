@@ -26,7 +26,7 @@ class createTask extends Controller
         $task->start = $request->input('start');
         $task->end = $request->input('end');
         $task->comment = $request->input('comment');
-        $task->status = $request->input('status');
+        $task->state = $request->input('state');
 
         $result = DB::select("select * from tasks where orderNumber = '$task->orderNumber'");
         
@@ -81,10 +81,20 @@ class createTask extends Controller
                     "status"=>405,
                     "message"=>'branchId is Required',
                 ];
-            }else if($task->lacation ==''){
+            }else if($task->lon ==''){
                 return [
                     "status"=>405,
-                    "message"=>'lacation is Required',
+                    "message"=>'lon is Required ( Longitude )',
+                ];
+            }else if($task->lat ==''){
+                return [
+                    "status"=>405,
+                    "message"=>'lat is Required ( Latitude )',
+                ];
+            }else if($task->address ==''){
+                return [
+                    "status"=>405,
+                    "message"=>'address is Required',
                 ];
             }else if($task->start ==''){
                 return [
@@ -101,7 +111,7 @@ class createTask extends Controller
                     "status"=>405,
                     "message"=>'comment is Required',
                 ];
-            }else if($task->status ==''){
+            }else if($task->state ==''){
                 return [
                     "status"=>405,
                     "message"=>'status is Required',
