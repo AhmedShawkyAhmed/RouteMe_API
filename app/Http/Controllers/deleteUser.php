@@ -12,15 +12,15 @@ class deleteUser extends Controller
         $id = $request->input('id');
         $type = $request->input('type');
 
-        if($id == ''){
-            return [
-                "status"=>405,
-                "message"=>'id is Required',
-            ];
-        }else if($type == ''){
+        if($type == ''){
             return [
                 "status"=>405,
                 "message"=>'type is Required [ driver - dispatcher - vendor ]',
+            ];
+        }else if($id == ''){
+            return [
+                "status"=>405,
+                "message"=>'id is Required',
             ];
         }else{
             if($type == 'driver'){
