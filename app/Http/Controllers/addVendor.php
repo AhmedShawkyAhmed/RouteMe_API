@@ -15,7 +15,11 @@ class addVendor extends Controller
         $vendor->brandName = $request->input('brandName');
         $vendor->email = $request->input('email');
         $vendor->password = $request->input('password');
-        $vendor->brandImage = $request->file('brandImage')->store('apiImages');
+        if($request->file('brandImage') == null){
+            $vendor->brandImage = "";
+        }else{
+            $vendor->brandImage = $request->file('brandImage')->store('apiImages');
+        }
 
         $result = DB::select("select * from vendors where server = '$vendor->server' or email = '$vendor->email'");
 
