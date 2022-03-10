@@ -14,7 +14,7 @@ class getUsers extends Controller
         if($type == ''){
             return [
                 "status"=>405,
-                "message"=>'type is Required',
+                "message"=>'type is Required [ dispatcher - driver - vendor ]',
             ];
         }else{
             if($type == 'dispatcher'){
