@@ -51,10 +51,20 @@ class requestPickup extends Controller
                 "status"=>405,
                 "message"=>'vendorId is Required',
             ];
-        }else if($pickUp->clientLocation ==''){
+        }else if($pickUp->lon ==''){
             return [
                 "status"=>405,
-                "message"=>'clientLocation is Required',
+                "message"=>'lon is Required ( Longitude )',
+            ];
+        }else if($pickUp->lat ==''){
+            return [
+                "status"=>405,
+                "message"=>'lat is Required ( Latitude )',
+            ];
+        }else if($pickUp->address ==''){
+            return [
+                "status"=>405,
+                "message"=>'address is Required',
             ];
         }else{
             $result = $pickUp->save();
