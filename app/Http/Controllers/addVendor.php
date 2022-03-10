@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class addVendor extends Controller
 {
-    //
     public function addVendor(Request $request){
         $vendor = new vendor();
 
@@ -53,8 +52,7 @@ class addVendor extends Controller
                 ];
             }else{
                 $result = $vendor->save();
-                if($result)
-                {
+                if($result){
                     return [
                         "status"=>200,
                         "message"=>'Vendor Account Created Successfully',

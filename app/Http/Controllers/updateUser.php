@@ -9,8 +9,8 @@ use App\Models\vendor;
 
 class updateUser extends Controller
 {
-    public function updateUser(Request $request)
-    {
+    public function updateUser(Request $request){
+
         $type = $request->input('type');
         $id = $request->input('id');
 

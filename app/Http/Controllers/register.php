@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class register extends Controller
 {
-    //
     public function register(Request $request){
         $company = new company();
 

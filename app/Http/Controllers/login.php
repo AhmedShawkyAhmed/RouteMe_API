@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 class login extends Controller
 {
-    //
     public function login(Request $request){
 
         $server = $request->input('server');

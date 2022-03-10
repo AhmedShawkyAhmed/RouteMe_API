@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class addDispatcher extends Controller
 {
-    //
     public function addDispatcher(Request $request){
         $dispatcher = new dispatcher();
 
@@ -53,8 +52,7 @@ class addDispatcher extends Controller
                 ];
             }else{
                 $result = $dispatcher->save();
-                if($result)
-                {
+                if($result){
                     return [
                         "status"=>200,
                         "message"=>'Dispatcher Account Created Successfully',

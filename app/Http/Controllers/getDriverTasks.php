@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class getDriverTasks extends Controller
 {
-    public function getDriverTasks(Request $request)
-    {
+    public function getDriverTasks(Request $request){
+        
         $driverId = $request->input('driverId');
 
         if($driverId == ''){

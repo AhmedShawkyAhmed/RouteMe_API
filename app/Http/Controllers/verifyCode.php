@@ -7,9 +7,8 @@ use Illuminate\Support\Facades\Mail;
 
 class verifyCode extends Controller
 {
-    //
-    public function verifyCode(Request $request)
-    {
+    public function verifyCode(Request $request){
+        
         $email = $request->input('email');
         $code = $request->input('code');
         $name = $request->input('name');

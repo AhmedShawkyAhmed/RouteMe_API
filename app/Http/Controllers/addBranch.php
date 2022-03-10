@@ -7,14 +7,15 @@ use Illuminate\Http\Request;
 
 class addBranch extends Controller
 {
-    public function addBranch(Request $request)
-    {
+    public function addBranch(Request $request){
         $branch = new branch();
 
         $branch->vendorId = $request->input('vendorId');
         $branch->branchName = $request->input('branchName');
         $branch->phone = $request->input('phone');
-        $branch->location = $request->input('location');
+        $branch->lon = $request->input('lon');
+        $branch->lat = $request->input('lat');
+        $branch->address = $request->input('address');
 
         if($branch->vendorId == ''){
             return [
@@ -31,15 +32,24 @@ class addBranch extends Controller
                 "status"=>405,
                 "message"=>'phone is Required',
             ];
-        }else if($branch->location ==''){
+        }else if($branch->lon ==''){
             return [
                 "status"=>405,
-                "message"=>'location is Required',
+                "message"=>'lon is Required ( Longitude )',
+            ];
+        }else if($branch->lat ==''){
+            return [
+                "status"=>405,
+                "message"=>'lat is Required ( Latitude )',
+            ];
+        }else if($branch->address ==''){
+            return [
+                "status"=>405,
+                "message"=>'address is Required',
             ];
         }else{
             $result = $branch->save();
-            if($result)
-            {
+            if($result){
                 return [
                     "status"=>200,
                     "message"=>'Branch Added Successfully',

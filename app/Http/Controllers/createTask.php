@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class createTask extends Controller
 {
-    public function createTask(Request $request)
-    {
+    public function createTask(Request $request){
         $task = new task();
 
         $task->orderNumber = $request->input('orderNumber');
@@ -21,7 +20,9 @@ class createTask extends Controller
         $task->price = $request->input('price');
         $task->vendorId = $request->input('vendorId');
         $task->branchId = $request->input('branchId');
-        $task->lacation = $request->input('lacation');
+        $task->lon = $request->input('lon');
+        $task->lat = $request->input('lat');
+        $task->address = $request->input('address');
         $task->start = $request->input('start');
         $task->end = $request->input('end');
         $task->comment = $request->input('comment');
@@ -107,8 +108,7 @@ class createTask extends Controller
                 ];
             }else{
                 $result = $task->save();
-                if($result)
-                {
+                if($result){
                     return [
                         "status"=>200,
                         "message"=>'Task Created Successfully',

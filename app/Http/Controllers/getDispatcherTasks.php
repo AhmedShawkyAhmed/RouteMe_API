@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class getDispatcherTasks extends Controller
 {
-    public function getDispatcherTasks(Request $request)
-    {
+    public function getDispatcherTasks(Request $request){
+
         $dispatcherId = $request->input('dispatcherId');
 
         if($dispatcherId == ''){

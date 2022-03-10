@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 
 class resetPassword extends Controller
 {
-    public function resetPassword(Request $request)
-    {
+    public function resetPassword(Request $request){
+
         $type = $request->input('type');
         $id = $request->input('id');
 

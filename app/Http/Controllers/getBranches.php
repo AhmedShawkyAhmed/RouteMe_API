@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class getBranches extends Controller
 {
-    public function getBranches(Request $request)
-    {
+    public function getBranches(Request $request){
+
         $vendorId = $request->input('vendorId');
 
         if($vendorId == ''){
@@ -19,7 +19,7 @@ class getBranches extends Controller
         }else{
             $result = DB::select("select * from branches where vendorId  = $vendorId");
 
-            if (!$result){
+            if ($result){
                 return response(
                     json_encode($result),
                     200,

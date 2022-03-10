@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 class deleteUser extends Controller
 {
-    //
     public function deleteUser(Request $request){
 
         $id = $request->input('id');
@@ -16,7 +15,7 @@ class deleteUser extends Controller
         if($id == ''){
             return [
                 "status"=>405,
-                "message"=>'User id is Required',
+                "message"=>'id is Required',
             ];
         }else if($type == ''){
             return [

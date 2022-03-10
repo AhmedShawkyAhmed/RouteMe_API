@@ -13,6 +13,8 @@ class branch extends Model
         'vendorId',
         'branchName',
         'phone',
-        'location',
+        'lon',
+        'lat',
+        'address',
     ];
 }

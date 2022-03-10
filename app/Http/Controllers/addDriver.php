@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class addDriver extends Controller
 {
-    //
     public function addDriver(Request $request){
         $driver = new driver();
 
@@ -53,8 +52,7 @@ class addDriver extends Controller
                 ];
             }else{
                 $result = $driver->save();
-                if($result)
-                {
+                if($result){
                     return [
                         "status"=>200,
                         "message"=>'Driver Account Created Successfully',

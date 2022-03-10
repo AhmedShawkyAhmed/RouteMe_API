@@ -8,8 +8,8 @@ use App\Models\order;
 
 class taskStatus extends Controller
 {
-    public function taskStatus(Request $request)
-    {
+    public function taskStatus(Request $request){
+
         $taskId = $request->input('taskId');
         $orderId = $request->input('orderId');
         $taskStatus = $request->input('status');

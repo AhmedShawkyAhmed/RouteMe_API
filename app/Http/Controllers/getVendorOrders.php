@@ -29,8 +29,7 @@ class getVendorOrders extends Controller
                             'Content-Type' => 'application/json;charset=UTF-8',
                         ],
                     );
-                }
-                else{
+                }else{
                     return [
                         "status"=>404,
                         "message"=>'vendorId Not Found',
@@ -46,8 +45,7 @@ class getVendorOrders extends Controller
                             'Content-Type' => 'application/json;charset=UTF-8',
                         ],
                     );
-                }
-                else{
+                }else{
                     return [
                         "status"=>404,
                         "message"=>'No Orders Founded',

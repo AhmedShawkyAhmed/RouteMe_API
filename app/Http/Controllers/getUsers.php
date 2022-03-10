@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class getUsers extends Controller
 {
-    public function getUsers(Request $request)
-    {
+    public function getUsers(Request $request){
+
         $type = $request->input('type');
 
         if($type == ''){
@@ -28,7 +28,7 @@ class getUsers extends Controller
                             'Content-Type' => 'application/json;charset=UTF-8',
                         ],
                     );
-                }else {
+                }else{
                     return [
                         "status"=>404,
                         "message"=>'No Dispatcher Found',
@@ -45,7 +45,7 @@ class getUsers extends Controller
                             'Content-Type' => 'application/json;charset=UTF-8',
                         ],
                     );
-                }else {
+                }else{
                     return [
                         "status"=>404,
                         "message"=>'No Driver Found',
@@ -62,7 +62,7 @@ class getUsers extends Controller
                             'Content-Type' => 'application/json;charset=UTF-8',
                         ],
                     );
-                }else {
+                }else{
                     return [
                         "status"=>404,
                         "message"=>'No Vendor Found',

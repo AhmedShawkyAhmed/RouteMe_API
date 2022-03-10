@@ -8,9 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class requestPickup extends Controller
 {
-    //
-    public function requestPickup(Request $request)
-    {
+    public function requestPickup(Request $request){
         $pickUp = new order();
     
         $pickUp->clientName = $request->input('clientName');
@@ -19,7 +17,9 @@ class requestPickup extends Controller
         $pickUp->price = $request->input('total');
         $pickUp->branchId = $request->input('branchId');
         $pickUp->vendorId = $request->input('vendorId');
-        $pickUp->clientLocation = $request->input('clientLocation');
+        $pickUp->lon = $request->input('lon');
+        $pickUp->lat = $request->input('lat');
+        $pickUp->address = $request->input('address');
 
         if($pickUp->clientName == ''){
             return [
@@ -58,8 +58,7 @@ class requestPickup extends Controller
             ];
         }else{
             $result = $pickUp->save();
-            if($result)
-            {
+            if($result){
                 return [
                     "status"=>200,
                     "message"=>'Pick Up Request Created Successfully',

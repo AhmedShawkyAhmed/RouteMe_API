@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class searchOrders extends Controller
 {
-    public function searchOrders(Request $request)
-    {
+    public function searchOrders(Request $request){
+
         $orderId = $request->input('orderId');
 
         if($orderId == ''){
