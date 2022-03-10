@@ -24,6 +24,18 @@ class updateUser extends Controller
                 "status"=>405,
                 "message"=>'id is Required',
             ];
+        }else if(count($request->all()) <= 2){
+            if($type == 'dispatcher' || $type == 'driver'){
+                return [
+                    "status"=>405,
+                    "message"=>'select what to update [ name - email - phone ]',
+                ];
+            }else if($type == 'vendor'){
+                return [
+                    "status"=>405,
+                    "message"=>'select what to update [ brandName - email - brandImage ]',
+                ];
+            }
         }else{
             if($type == 'dispatcher' && !is_null(dispatcher::find($id))){
                 $dispatcher = dispatcher::find($id);
