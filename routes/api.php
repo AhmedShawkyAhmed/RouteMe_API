@@ -19,6 +19,7 @@ use App\Http\Controllers\resetPassword;
 use App\Http\Controllers\searchOrders;
 use App\Http\Controllers\taskStatus;
 use App\Http\Controllers\updateUser;
+use App\Http\Controllers\updateUserStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -74,3 +75,5 @@ Route::post("createTask",[createTask::class,'createTask']);
 Route::post("getDriverTasks",[getDriverTasks::class,'getDriverTasks']);
 
 Route::post("taskStatus",[taskStatus::class,'taskStatus']);
+
+Route::post("updateUserStatus",[updateUserStatus::class,'updateUserStatus']);

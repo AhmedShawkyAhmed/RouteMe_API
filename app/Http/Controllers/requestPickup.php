@@ -11,16 +11,16 @@ class requestPickup extends Controller
     public function requestPickup(Request $request){
         $pickUp = new order();
     
-        $pickUp->clientName = $request->input('clientName');
-        $pickUp->clientPhone = $request->input('clientPhone');
-        $pickUp->itemCount = $request->input('itemCount');
-        $pickUp->price = $request->input('price');
-        $pickUp->branchId = $request->input('branchId');
-        $pickUp->vendorId = $request->input('vendorId');
-        $pickUp->lon = $request->input('lon');
-        $pickUp->lat = $request->input('lat');
-        $pickUp->address = $request->input('address');
-        $pickUp->state = $request->input('state');
+        $pickUp->clientName = $request->clientName;
+        $pickUp->clientPhone = $request->clientPhone;
+        $pickUp->itemCount = $request->itemCount;
+        $pickUp->price = $request->price;
+        $pickUp->branchId = $request->branchId;
+        $pickUp->vendorId = $request->vendorId;
+        $pickUp->lon = $request->lon;
+        $pickUp->lat = $request->lat;
+        $pickUp->address = $request->address;
+        $pickUp->state = $request->state;
 
         if($pickUp->clientName == ''){
             return [

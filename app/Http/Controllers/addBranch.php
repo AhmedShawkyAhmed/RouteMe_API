@@ -10,12 +10,12 @@ class addBranch extends Controller
     public function addBranch(Request $request){
         $branch = new branch();
 
-        $branch->vendorId = $request->input('vendorId');
-        $branch->branchName = $request->input('branchName');
-        $branch->phone = $request->input('phone');
-        $branch->lon = $request->input('lon');
-        $branch->lat = $request->input('lat');
-        $branch->address = $request->input('address');
+        $branch->vendorId = $request->vendorId;
+        $branch->branchName = $request->branchName;
+        $branch->phone = $request->phone;
+        $branch->lon = $request->lon;
+        $branch->lat = $request->lat;
+        $branch->address = $request->address;
 
         if($branch->vendorId == ''){
             return [

@@ -15,5 +15,6 @@ class driver extends Model
         'email',
         'password',
         'phone',
+        'status',
     ];
 }

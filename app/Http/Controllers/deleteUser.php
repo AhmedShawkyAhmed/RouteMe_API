@@ -9,8 +9,8 @@ class deleteUser extends Controller
 {
     public function deleteUser(Request $request){
 
-        $id = $request->input('id');
-        $type = $request->input('type');
+        $id = $request->id;
+        $type = $request->type;
 
         if($type == ''){
             return [

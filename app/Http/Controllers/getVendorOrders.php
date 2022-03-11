@@ -10,8 +10,8 @@ class getVendorOrders extends Controller
     //
     public function getVendorOrders(Request $request){ 
 
-        $orderId  = $request->input('orderId');
-        $vendorId   = $request->input('vendorId');
+        $orderId  = $request->orderId;
+        $vendorId   = $request->vendorId;
 
         if($vendorId == ''){
             return [

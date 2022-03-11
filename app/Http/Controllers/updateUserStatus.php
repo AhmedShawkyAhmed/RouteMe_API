@@ -7,12 +7,13 @@ use App\Models\dispatcher;
 use App\Models\driver;
 use App\Models\vendor;
 
-class updateUser extends Controller
+class updateUserStatus extends Controller
 {
-    public function updateUser(Request $request){
-
-        $type = $request->type;
+    public function updateUserStatus(Request $request){
+        
         $id = $request->id;
+        $type = $request->type;
+        $status = $request->status;
 
         if($type == ''){
             return [
@@ -24,18 +25,11 @@ class updateUser extends Controller
                 "status"=>405,
                 "message"=>'id is Required',
             ];
-        }else if(count($request->all()) <= 2){
-            if($type == 'dispatcher' || $type == 'driver'){
-                return [
-                    "status"=>405,
-                    "message"=>'select what to update [ name - email - phone ]',
-                ];
-            }else if($type == 'vendor'){
-                return [
-                    "status"=>405,
-                    "message"=>'select what to update [ brandName - email - brandImage ]',
-                ];
-            }
+        }else if($status == ''){
+            return [
+                "status"=>405,
+                "message"=>'status is Required',
+            ];
         }else{
             if($type == 'dispatcher' && !is_null(dispatcher::find($id))){
                 $dispatcher = dispatcher::find($id);

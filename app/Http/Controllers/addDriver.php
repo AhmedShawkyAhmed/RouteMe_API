@@ -11,11 +11,11 @@ class addDriver extends Controller
     public function addDriver(Request $request){
         $driver = new driver();
 
-        $driver->server = $request->input('server');
-        $driver->name = $request->input('name');
-        $driver->email = $request->input('email');
-        $driver->password = $request->input('password');
-        $driver->phone = $request->input('phone');
+        $driver->server = $request->server;
+        $driver->name = $request->name;
+        $driver->email = $request->email;
+        $driver->password = $request->password;
+        $driver->phone = $request->phone;
 
         $result = DB::select("select * from drivers where server = '$driver->server' and email = '$driver->email'");
 

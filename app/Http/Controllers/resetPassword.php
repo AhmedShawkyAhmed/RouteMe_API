@@ -12,9 +12,9 @@ class resetPassword extends Controller
 {
     public function resetPassword(Request $request){
 
-        $type = $request->input('type');
-        $id = $request->input('id');
-        $pass = $request->input('password');
+        $type = $request->type;
+        $id = $request->id;
+        $pass = $request->password;
 
         if($type == ''){
             return [

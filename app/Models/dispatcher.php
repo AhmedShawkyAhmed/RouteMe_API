@@ -15,5 +15,6 @@ class dispatcher extends Model
         'email',
         'password',
         'phone',
+        'status',
     ];
 }

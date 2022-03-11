@@ -11,11 +11,11 @@ class addDispatcher extends Controller
     public function addDispatcher(Request $request){
         $dispatcher = new dispatcher();
 
-        $dispatcher->server = $request->input('server');
-        $dispatcher->name = $request->input('name');
-        $dispatcher->email = $request->input('email');
-        $dispatcher->password = $request->input('password');
-        $dispatcher->phone = $request->input('phone');
+        $dispatcher->server = $request->server;
+        $dispatcher->name = $request->name;
+        $dispatcher->email = $request->email;
+        $dispatcher->password = $request->password;
+        $dispatcher->phone = $request->phone;
 
         $result = DB::select("select * from dispatchers where server = '$dispatcher->server' and email = '$dispatcher->email'");
 

@@ -9,7 +9,7 @@ class searchOrders extends Controller
 {
     public function searchOrders(Request $request){
 
-        $orderId = $request->input('orderId');
+        $orderId = $request->orderId;
 
         if($orderId == ''){
             $result = DB::select("select * from orders where state != 'assigned'");

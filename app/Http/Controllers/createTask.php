@@ -11,22 +11,22 @@ class createTask extends Controller
     public function createTask(Request $request){
         $task = new task();
 
-        $task->orderNumber = $request->input('orderNumber');
-        $task->driverId = $request->input('driverId');
-        $task->dispatcherId = $request->input('dispatcherId');
-        $task->clientName = $request->input('clientName');
-        $task->clientPhone = $request->input('clientPhone');
-        $task->itemCount = $request->input('itemCount');
-        $task->price = $request->input('price');
-        $task->vendorId = $request->input('vendorId');
-        $task->branchId = $request->input('branchId');
-        $task->lon = $request->input('lon');
-        $task->lat = $request->input('lat');
-        $task->address = $request->input('address');
-        $task->start = $request->input('start');
-        $task->end = $request->input('end');
-        $task->comment = $request->input('comment');
-        $task->status = $request->input('status');
+        $task->orderNumber = $request->orderNumber;
+        $task->driverId = $request->driverId;
+        $task->dispatcherId = $request->dispatcherId;
+        $task->clientName = $request->clientName;
+        $task->clientPhone = $request->clientPhone;
+        $task->itemCount = $request->itemCount;
+        $task->price = $request->price;
+        $task->vendorId = $request->vendorId;
+        $task->branchId = $request->branchId;
+        $task->lon = $request->lon;
+        $task->lat = $request->lat;
+        $task->address = $request->address;
+        $task->start = $request->start;
+        $task->end = $request->end;
+        $task->comment = $request->comment;
+        $task->status = $request->status;
 
         $result = DB::select("select * from tasks where orderNumber = '$task->orderNumber'");
         
