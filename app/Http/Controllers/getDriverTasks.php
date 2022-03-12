@@ -9,7 +9,7 @@ class getDriverTasks extends Controller
 {
     public function getDriverTasks(Request $request){
         
-        $driverId = $request->driverId;
+        $driverId = $request->input('driverId');
 
         if($driverId == ''){
             return [

@@ -9,7 +9,7 @@ class getUsers extends Controller
 {
     public function getUsers(Request $request){
 
-        $type = $request->type;
+        $type = $request->input('type');
 
         if($type == ''){
             return [

@@ -10,10 +10,10 @@ class taskStatus extends Controller
 {
     public function taskStatus(Request $request){
 
-        $taskId = $request->taskId;
-        $orderId = $request->orderId;
-        $status = $request->status;
-        $state = $request->state;
+        $taskId = $request->input('taskId');
+        $orderId = $request->input('orderId');
+        $status = $request->input('status');
+        $state = $request->input('state');
 
         if($taskId == ''){
             return [

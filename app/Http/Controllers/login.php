@@ -9,9 +9,9 @@ class login extends Controller
 {
     public function login(Request $request){
 
-        $server = $request->server;
-        $email = $request->email;
-        $password = $request->password;
+        $server = $request->input('server');
+        $email = $request->input('email');
+        $password = $request->input('password');
 
         if($server == ''){
             return [

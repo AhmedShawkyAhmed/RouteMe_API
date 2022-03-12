@@ -9,7 +9,7 @@ class getDispatcherTasks extends Controller
 {
     public function getDispatcherTasks(Request $request){
 
-        $dispatcherId = $request->dispatcherId;
+        $dispatcherId = $request->input('dispatcherId');
 
         if($dispatcherId == ''){
             return [

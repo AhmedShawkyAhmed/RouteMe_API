@@ -12,10 +12,10 @@ class addDispatcher extends Controller
         $dispatcher = new dispatcher();
 
         $dispatcher->server = $request->input('server');
-        $dispatcher->name = $request->name;
-        $dispatcher->email = $request->email;
-        $dispatcher->password = $request->password;
-        $dispatcher->phone = $request->phone;
+        $dispatcher->name = $request->input('name');
+        $dispatcher->email = $request->input('email');
+        $dispatcher->password = $request->input('password');
+        $dispatcher->phone = $request->input('phone');
 
         $result = DB::select("select * from dispatchers where server = '$dispatcher->server' and email = '$dispatcher->email'");
 

@@ -11,8 +11,8 @@ class updateUser extends Controller
 {
     public function updateUser(Request $request){
 
-        $type = $request->type;
-        $id = $request->id;
+        $type = $request->input('type');
+        $id = $request->input('id');
 
         if($type == ''){
             return [

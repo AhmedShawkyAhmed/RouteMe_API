@@ -11,10 +11,10 @@ class addVendor extends Controller
     public function addVendor(Request $request){
         $vendor = new vendor();
 
-        $vendor->server = $request->server;
-        $vendor->brandName = $request->brandName;
-        $vendor->email = $request->email;
-        $vendor->password = $request->password;
+        $vendor->server = $request->input('server');
+        $vendor->brandName = $request->input('brandName');
+        $vendor->email = $request->input('email');
+        $vendor->password = $request->input('password');
         if($request->file('brandImage') == null){
             $vendor->brandImage = "";
         }else{

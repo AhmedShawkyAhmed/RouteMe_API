@@ -11,11 +11,11 @@ class register extends Controller
     public function register(Request $request){
         $company = new company();
 
-        $company->name = $request->name;
-        $company->server = $request->server;
-        $company->email = $request->email;
-        $company->password = $request->password;
-        $company->phone = $request->phone;
+        $company->name = $request->input('name');
+        $company->server = $request->input('server');
+        $company->email = $request->input('email');
+        $company->password = $request->input('password');
+        $company->phone = $request->input('phone');
 
         $result = DB::select("select * from companies where server = '$company->server' or email = '$company->email'");
 

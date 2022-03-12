@@ -11,9 +11,9 @@ class updateUserStatus extends Controller
 {
     public function updateUserStatus(Request $request){
         
-        $id = $request->id;
-        $type = $request->type;
-        $status = $request->status;
+        $id = $request->input('id');
+        $type = $request->input('type');
+        $status = $request->input('status');
 
         if($type == ''){
             return [

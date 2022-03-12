@@ -9,7 +9,7 @@ class getBranches extends Controller
 {
     public function getBranches(Request $request){
 
-        $vendorId = $request->vendorId;
+        $vendorId = $request->input('vendorId');
 
         if($vendorId == ''){
             return [

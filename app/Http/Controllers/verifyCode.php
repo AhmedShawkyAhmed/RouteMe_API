@@ -9,9 +9,9 @@ class verifyCode extends Controller
 {
     public function verifyCode(Request $request){
         
-        $email = $request->email;
-        $code = $request->code;
-        $name = $request->name;
+        $email = $request->input('email');
+        $code = $request->input('code');
+        $name = $request->input('name');
         
         if($email == ''){
             return [
