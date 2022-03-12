@@ -11,7 +11,7 @@ class addDispatcher extends Controller
     public function addDispatcher(Request $request){
         $dispatcher = new dispatcher();
 
-        $dispatcher->server = $request->server;
+        $dispatcher->server = $request->input('server');
         $dispatcher->name = $request->name;
         $dispatcher->email = $request->email;
         $dispatcher->password = $request->password;
