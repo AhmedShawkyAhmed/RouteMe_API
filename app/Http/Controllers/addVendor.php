@@ -18,10 +18,10 @@ class addVendor extends Controller
         if($request->file('brandImage') == null){
             $vendor->brandImage = "";
         }else{
-            $vendor->brandImage = $request->file('brandImage')->store('apiImages');
+            $vendor->brandImage = $request->file('brandImage')->store('apiImages','public');
         }
 
-        $result = DB::select("select * from vendors where server = '$vendor->server' or email = '$vendor->email'");
+        $result = DB::select("select * from vendors where server = '$vendor->server' and email = '$vendor->email'");
 
         if($result){
             return [
