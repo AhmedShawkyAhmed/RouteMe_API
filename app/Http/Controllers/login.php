@@ -31,43 +31,31 @@ class login extends Controller
         }else{
             $result = DB::select("select * from companies where server = '$server' and email = '$email' and password = '$password'");
             if($result){
-                return response(
-                    json_encode($result),
-                    200,
-                    [
-                        'Content-Type' => 'application/json;charset=UTF-8',
-                    ],
-                );
+                return [
+                    "status"=>200,
+                    "user"=>$result,
+                ];
             }else{
                 $result = DB::select("select * from drivers where server = '$server' and email = '$email' and password = '$password'");
                 if($result){
-                    return response(
-                        json_encode($result),
-                        200,
-                        [
-                            'Content-Type' => 'application/json;charset=UTF-8',
-                        ],
-                    );
+                    return [
+                        "status"=>200,
+                        "user"=>$result,
+                    ];
                 }else{
                     $result = DB::select("select * from dispatchers where server = '$server' and email = '$email' and password = '$password'");
                     if($result){
-                        return response(
-                            json_encode($result),
-                            200,
-                            [
-                                'Content-Type' => 'application/json;charset=UTF-8',
-                            ],
-                        );
+                        return [
+                            "status"=>200,
+                            "user"=>$result,
+                        ];
                     }else{
                         $result = DB::select("select * from vendors where server = '$server' and email = '$email' and password = '$password'");
                         if($result){
-                            return response(
-                                json_encode($result),
-                                200,
-                                [
-                                    'Content-Type' => 'application/json;charset=UTF-8',
-                                ],
-                            );
+                            return [
+                                "status"=>200,
+                                "user"=>$result,
+                            ];
                         }else{
                             return [
                                 "status"=>404,
