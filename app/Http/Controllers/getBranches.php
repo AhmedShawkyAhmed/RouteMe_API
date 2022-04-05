@@ -20,13 +20,10 @@ class getBranches extends Controller
             $result = DB::select("select * from branches where vendorId  = $vendorId");
 
             if ($result){
-                return response(
-                    json_encode($result),
-                    200,
-                    [
-                        'Content-Type' => 'application/json;charset=UTF-8',
-                    ],
-                );
+                return [
+                    "status"=>200,
+                    "branches"=>$result,
+                ];
             }else {
                 return [
                     "status"=>404,

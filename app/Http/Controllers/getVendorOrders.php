@@ -22,13 +22,10 @@ class getVendorOrders extends Controller
             if($orderId == ''){
                 $result = DB::select("select * from orders where vendorId  = $vendorId");
                 if($result){
-                    return response(
-                        json_encode($result),
-                        200,
-                        [
-                            'Content-Type' => 'application/json;charset=UTF-8',
-                        ],
-                    );
+                    return [
+                        "status"=>200,
+                        "orders"=>$result,
+                    ];
                 }else{
                     return [
                         "status"=>404,
@@ -38,13 +35,10 @@ class getVendorOrders extends Controller
             }else{
                 $result = DB::select("select * from orders where vendorId  = $vendorId and orderId  = $orderId");
                 if($result){
-                    return response(
-                        json_encode($result),
-                        200,
-                        [
-                            'Content-Type' => 'application/json;charset=UTF-8',
-                        ],
-                    );
+                    return [
+                        "status"=>200,
+                        "orders"=>$result,
+                    ];
                 }else{
                     return [
                         "status"=>404,

@@ -21,13 +21,10 @@ class getUsers extends Controller
                 $result = DB::select("select * from dispatchers");
 
                 if ($result){
-                    return response(
-                        json_encode($result),
-                        200,
-                        [
-                            'Content-Type' => 'application/json;charset=UTF-8',
-                        ],
-                    );
+                    return [
+                        "status"=>200,
+                        "users"=>$result,
+                    ];
                 }else{
                     return [
                         "status"=>404,
@@ -38,13 +35,10 @@ class getUsers extends Controller
                 $result = DB::select("select * from drivers");
 
                 if ($result){
-                    return response(
-                        json_encode($result),
-                        200,
-                        [
-                            'Content-Type' => 'application/json;charset=UTF-8',
-                        ],
-                    );
+                    return [
+                        "status"=>200,
+                        "users"=>$result,
+                    ];
                 }else{
                     return [
                         "status"=>404,
@@ -55,13 +49,10 @@ class getUsers extends Controller
                 $result = DB::select("select * from vendors");
 
                 if ($result){
-                    return response(
-                        json_encode($result),
-                        200,
-                        [
-                            'Content-Type' => 'application/json;charset=UTF-8',
-                        ],
-                    );
+                    return [
+                        "status"=>200,
+                        "users"=>$result,
+                    ];
                 }else{
                     return [
                         "status"=>404,
@@ -71,8 +62,7 @@ class getUsers extends Controller
             }else{
                 return [
                     "status"=>404,
-                    "message"=>"The Type $type not Found",
-                    "typs"=>"[ dispatcher - driver - vendor ]",
+                    "message"=>"The Type $type not Found - Types [ dispatcher - driver - vendor ]",
                 ];
             }
         }

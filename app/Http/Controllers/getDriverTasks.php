@@ -20,13 +20,10 @@ class getDriverTasks extends Controller
             $result = DB::select("select * from tasks where driverId  = $driverId");
 
             if ($result){
-                return response(
-                    json_encode($result),
-                    200,
-                    [
-                        'Content-Type' => 'application/json;charset=UTF-8',
-                    ],
-                );
+                return [
+                    "status"=>200,
+                    "tasks"=>$result,
+                ];
             }else {
                 return [
                     "status"=>404,

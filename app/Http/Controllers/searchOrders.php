@@ -15,13 +15,10 @@ class searchOrders extends Controller
             $result = DB::select("select * from orders where state != 'assigned'");
 
             if ($result){
-                return response(
-                    json_encode($result),
-                    200,
-                    [
-                        'Content-Type' => 'application/json;charset=UTF-8',
-                    ],
-                );
+                return [
+                    "status"=>200,
+                    "orders"=>$result,
+                ];
             }else {
                 return [
                     "status"=>404,
@@ -32,13 +29,10 @@ class searchOrders extends Controller
             $result = DB::select("select * from orders where id = $orderId and state != 'assigned'");
 
             if ($result){
-                return response(
-                    json_encode($result),
-                    200,
-                    [
-                        'Content-Type' => 'application/json;charset=UTF-8',
-                    ],
-                );
+                return [
+                    "status"=>200,
+                    "orders"=>$result,
+                ];
             }else {
                 return [
                     "status"=>404,

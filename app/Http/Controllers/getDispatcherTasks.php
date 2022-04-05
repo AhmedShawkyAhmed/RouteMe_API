@@ -20,13 +20,10 @@ class getDispatcherTasks extends Controller
             $result = DB::select("select * from tasks where dispatcherId  = $dispatcherId");
 
             if ($result){
-                return response(
-                    json_encode($result),
-                    200,
-                    [
-                        'Content-Type' => 'application/json;charset=UTF-8',
-                    ],
-                );
+                return [
+                    "status"=>200,
+                    "tasks"=>$result,
+                ];
             }else {
                 return [
                     "status"=>404,
