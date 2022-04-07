@@ -14,6 +14,7 @@ class vendor extends Model
         'brandName',
         'email',
         'password',
+        'phone',
         'brandImage',
     ];
 }

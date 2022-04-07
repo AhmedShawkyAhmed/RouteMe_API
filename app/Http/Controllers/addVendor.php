@@ -15,6 +15,7 @@ class addVendor extends Controller
         $vendor->brandName = $request->input('brandName');
         $vendor->email = $request->input('email');
         $vendor->password = $request->input('password');
+        $vendor->phone = $request->input('phone');
         if($request->file('brandImage') == null){
             $vendor->brandImage = "";
         }else{
@@ -48,6 +49,11 @@ class addVendor extends Controller
                 return [
                     "status"=>405,
                     "message"=>'Password is Required',
+                ];
+            }else if($vendor->phone ==''){
+                return [
+                    "status"=>405,
+                    "message"=>'Phone Number is Required',
                 ];
             }else if($vendor->brandImage ==''){
                 return [
