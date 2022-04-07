@@ -18,7 +18,6 @@ class getDispatcherTasks extends Controller
             ];
         }else{
             $result = DB::select("select * from tasks where dispatcherId  = $dispatcherId");
-
             if ($result){
                 return [
                     "status"=>200,

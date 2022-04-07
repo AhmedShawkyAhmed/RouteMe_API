@@ -18,7 +18,6 @@ class getDriverTasks extends Controller
             ];
         }else{
             $result = DB::select("select * from tasks where driverId  = $driverId");
-
             if ($result){
                 return [
                     "status"=>200,

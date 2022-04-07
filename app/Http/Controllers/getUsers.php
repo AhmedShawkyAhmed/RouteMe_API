@@ -47,7 +47,6 @@ class getUsers extends Controller
                 }
             }else if($type == 'vendor'){
                 $result = DB::select("select * from vendors");
-
                 if ($result){
                     return [
                         "status"=>200,

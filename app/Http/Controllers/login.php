@@ -57,10 +57,45 @@ class login extends Controller
                                 "user"=>$result,
                             ];
                         }else{
-                            return [
-                                "status"=>404,
-                                "message"=>'No User Found',
-                            ];
+                            # server
+                            $servercompany = DB::select("select * from companies where server != '$server' and email = '$email' and password = '$password'");
+                            $serverdriver = DB::select("select * from drivers where server != '$server' and email = '$email' and password = '$password'");
+                            $serverdispatcher = DB::select("select * from dispatchers where server != '$server' and email = '$email' and password = '$password'");
+                            $servervendor = DB::select("select * from vendors where server != '$server' and email = '$email' and password = '$password'");
+
+                            # email
+                            $emailcompany = DB::select("select * from companies where server = '$server' and email != '$email' and password = '$password'");
+                            $emaildriver = DB::select("select * from drivers where server = '$server' and email != '$email' and password = '$password'");
+                            $emaildispatcher = DB::select("select * from dispatchers where server = '$server' and email != '$email' and password = '$password'");
+                            $emailvendor = DB::select("select * from vendors where server = '$server' and email != '$email' and password = '$password'");
+
+                            # password
+                            $passwordcompany = DB::select("select * from companies where server = '$server' and email = '$email' and password != '$password'");
+                            $passworddriver = DB::select("select * from drivers where server = '$server' and email = '$email' and password != '$password'");
+                            $passworddispatcher = DB::select("select * from dispatchers where server = '$server' and email = '$email' and password != '$password'");
+                            $passwordvendor = DB::select("select * from vendors where server = '$server' and email = '$email' and password != '$password'");
+                            
+                            if($servercompany || $serverdispatcher || $serverdriver || $servervendor){
+                                return [
+                                    "status"=>505,
+                                    "message"=>'Server is Wrong',
+                                ];
+                            }else if($emailcompany || $emaildispatcher || $emaildriver || $emailvendor){
+                                return [
+                                    "status"=>505,
+                                    "message"=>'Email is Wrong',
+                                ];
+                            }else if($passwordcompany || $passworddispatcher || $passworddriver || $passwordvendor){
+                                return [
+                                    "status"=>505,
+                                    "message"=>'Password is Wrong',
+                                ];
+                            }else{
+                                return [
+                                    "status"=>404,
+                                    "message"=>'User Not Found',
+                                ];
+                            }
                         }
                     }
                 }

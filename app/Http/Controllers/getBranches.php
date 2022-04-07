@@ -18,7 +18,6 @@ class getBranches extends Controller
             ];
         }else{
             $result = DB::select("select * from branches where vendorId  = $vendorId");
-
             if ($result){
                 return [
                     "status"=>200,
