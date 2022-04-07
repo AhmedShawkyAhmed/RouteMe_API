@@ -4,7 +4,6 @@ use App\Http\Controllers\addDispatcher;
 use App\Http\Controllers\addDriver;
 use App\Http\Controllers\addVendor;
 use App\Http\Controllers\deleteUser;
-use App\Http\Controllers\login;
 use App\Http\Controllers\verifyCode;
 use App\Http\Controllers\getBranches;
 use App\Http\Controllers\addBranch;
@@ -13,6 +12,8 @@ use App\Http\Controllers\getDispatcherTasks;
 use App\Http\Controllers\getDriverTasks;
 use App\Http\Controllers\getUsers;
 use App\Http\Controllers\getVendorOrders;
+use App\Http\Controllers\loginMobile;
+use App\Http\Controllers\loginWeb;
 use App\Http\Controllers\register;
 use App\Http\Controllers\requestPickup;
 use App\Http\Controllers\resetPassword;
@@ -40,7 +41,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post("register",[register::class,'register']);
 
-Route::post("login",[login::class,'login']);
+Route::post("loginMobile",[loginMobile::class,'login']);
+
+Route::post("loginWeb",[loginWeb::class,'login']);
 
 Route::post("verifyCode",[verifyCode::class,'verifyCode']);
 
