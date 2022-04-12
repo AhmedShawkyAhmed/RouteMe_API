@@ -33,7 +33,7 @@ class getVendorOrders extends Controller
                     ];
                 }
             }else{
-                $result = DB::select("select * from orders where vendorId  = $vendorId and orderId  = $orderId");
+                $result = DB::select("select * from orders where vendorId  = $vendorId and id  = $orderId");
                 if($result){
                     return [
                         "status"=>200,
