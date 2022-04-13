@@ -65,8 +65,6 @@ Route::post("requestPickup",[requestPickup::class,'requestPickup']);
 
 Route::post("getBranches",[getBranches::class,'getBranches']);
 
-Route::post("getBranchesName",[getBranches::class,'getBranchesName']);
-
 Route::post("addBranch",[addBranch::class,'addBranch']);
 
 Route::post("getDispatcherTasks",[getDispatcherTasks::class,'getDispatcherTasks']);
