@@ -14,7 +14,7 @@ class addBranch extends Controller
         $branch->branchName = $request->input('branchName');
         $branch->phone = $request->input('phone');
         $branch->lon = $request->input('lon');
-        $branch->lat = $request->input('lon');
+        $branch->lat = $request->input('lat');
         $branch->address = $request->input('address');
 
         if($branch->vendorId == ''){
