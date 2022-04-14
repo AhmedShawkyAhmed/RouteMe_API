@@ -18,7 +18,7 @@ class order extends Model
         'address',
         'price',
         'vendorId',
-        'branchId',
+        'branch',
         'comment',
         'state',
     ];

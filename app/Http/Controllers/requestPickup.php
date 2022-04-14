@@ -15,7 +15,7 @@ class requestPickup extends Controller
         $pickUp->clientPhone = $request->input('clientPhone');
         $pickUp->itemCount = $request->input('itemCount');
         $pickUp->price = $request->input('price');
-        $pickUp->branchId = $request->input('branchId');
+        $pickUp->branch = $request->input('branch');
         $pickUp->vendorId = $request->input('vendorId');
         $pickUp->lon = $request->input('lon');
         $pickUp->lat = $request->input('lat');
@@ -42,10 +42,10 @@ class requestPickup extends Controller
                 "status"=>405,
                 "message"=>'price is Required',
             ];
-        }else if($pickUp->branchId ==''){
+        }else if($pickUp->branch ==''){
             return [
                 "status"=>405,
-                "message"=>'branchId is Required',
+                "message"=>'branch is Required',
             ];
         }else if($pickUp->vendorId ==''){
             return [
