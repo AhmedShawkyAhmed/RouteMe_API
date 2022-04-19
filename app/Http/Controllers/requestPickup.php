@@ -50,7 +50,7 @@ class requestPickup extends Controller
         }else if($pickUp->vendor ==''){
             return [
                 "status"=>405,
-                "message"=>'vendor is Required',
+                "message"=>'Vendor is Required',
             ];
         }else if($pickUp->lon ==''){
             return [
