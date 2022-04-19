@@ -17,6 +17,7 @@ class order extends Model
         'lat',
         'address',
         'price',
+        'vendorId',
         'vendor',
         'branch',
         'comment',
