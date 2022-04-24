@@ -15,7 +15,7 @@ class deleteUser extends Controller
         if($type == ''){
             return [
                 "status"=>405,
-                "message"=>'type is Required [ driver - dispatcher - vendor ]',
+                "message"=>'type is Required [ Driver - Dispatcher - Vendor ]',
             ];
         }else if($id == ''){
             return [
@@ -23,7 +23,7 @@ class deleteUser extends Controller
                 "message"=>'id is Required',
             ];
         }else{
-            if($type == 'driver'){
+            if($type == 'Driver'){
                 $result = DB::delete("delete from drivers where id = $id");
                 if($result){
                     return [
@@ -36,7 +36,7 @@ class deleteUser extends Controller
                         "message"=>'Not Found',
                     ];
                 }
-            }else if($type == 'dispatcher'){
+            }else if($type == 'Dispatcher'){
                 $result = DB::delete("delete from dispatchers where id = $id");
                 if($result){
                     return [
@@ -49,7 +49,7 @@ class deleteUser extends Controller
                         "message"=>'Not Found',
                     ];
                 }
-            }else if($type == 'vendor'){
+            }else if($type == 'Vendor'){
                 $result = DB::delete("delete from vendors where id = $id");
                 if($result){
                     return [
