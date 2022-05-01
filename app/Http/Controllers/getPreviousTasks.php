@@ -17,7 +17,7 @@ class getPreviousTasks extends Controller
                 "message"=>'driverId is Required',
             ];
         }else{
-            $result = DB::select("select * from tasks where driverId  = $driverId and status != 'onWay' or status != 'pickup'");
+            $result = DB::select("select * from tasks where driverId  = $driverId and status != 'onWay' and status != 'pickup'");
             if ($result){
                 return [
                     "status"=>200,
