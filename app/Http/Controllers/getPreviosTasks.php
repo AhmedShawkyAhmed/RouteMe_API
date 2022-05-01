@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class getDriverTasks extends Controller
+class getPreviosTasks extends Controller
 {
     public function getDriverTasks(Request $request){
         
@@ -17,7 +17,7 @@ class getDriverTasks extends Controller
                 "message"=>'driverId is Required',
             ];
         }else{
-            $result = DB::select("select * from tasks where driverId  = $driverId and status = 'onWay' or status = 'pickup'");
+            $result = DB::select("select * from tasks where driverId  = $driverId and status != 'onWay' or status != 'pickup'");
             if ($result){
                 return [
                     "status"=>200,
