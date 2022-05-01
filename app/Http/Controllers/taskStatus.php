@@ -14,6 +14,7 @@ class taskStatus extends Controller
         $orderId = $request->input('orderId');
         $status = $request->input('status');
         $state = $request->input('state');
+        $comment = $request->input('comment');
 
         if($taskId == ''){
             return [
