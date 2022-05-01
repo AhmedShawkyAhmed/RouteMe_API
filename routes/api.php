@@ -16,6 +16,7 @@ use App\Http\Controllers\loginMobile;
 use App\Http\Controllers\loginWeb;
 use App\Http\Controllers\register;
 use App\Http\Controllers\requestPickup;
+use App\Http\Controllers\getPreviousTasks;
 use App\Http\Controllers\resetPassword;
 use App\Http\Controllers\searchOrders;
 use App\Http\Controllers\taskStatus;
@@ -76,6 +77,8 @@ Route::post("searchOrders",[searchOrders::class,'searchOrders']);
 Route::post("createTask",[createTask::class,'createTask']);
 
 Route::post("getDriverTasks",[getDriverTasks::class,'getDriverTasks']);
+
+Route::post("getPreviousTasks",[getPreviousTasks::class,'getPreviousTasks']);
 
 Route::post("taskStatus",[taskStatus::class,'taskStatus']);
 

@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class getPreviosTasks extends Controller
+class getPreviousTasks extends Controller
 {
-    public function getDriverTasks(Request $request){
+    public function getPreviousTasks(Request $request){
         
         $driverId = $request->input('driverId');
 
