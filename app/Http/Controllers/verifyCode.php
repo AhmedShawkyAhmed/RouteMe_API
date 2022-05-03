@@ -24,40 +24,44 @@ class verifyCode extends Controller
                 "message"=>'code is Required',
             ];
         }else{
-            $result = DB::select("select name from companies where email = '$email'");
+            $result = DB::select("select * from companies where email = '$email'");
             if($result){
                 foreach($result as $user)
                 $this->send($email, $user->name, $code);
                 return [
                     "status"=>200,
                     "message"=>'Email Sent Successfully',
+                    "user"=>$user,
                 ];
             }else{
-                $result = DB::select("select name from dispatchers where email = '$email'");
+                $result = DB::select("select * from dispatchers where email = '$email'");
                 if($result){
                     foreach($result as $user)
                     $this->send($email, $user->name, $code);
                     return [
                         "status"=>200,
                         "message"=>'Email Sent Successfully',
+                        "user"=>$user,
                     ];
                 }else{
-                    $result = DB::select("select name from drivers where email = '$email'");
+                    $result = DB::select("select * from drivers where email = '$email'");
                     if($result){
                         foreach($result as $user)
                         $this->send($email, $user->name, $code);
                         return [
                             "status"=>200,
                             "message"=>'Email Sent Successfully',
+                            "user"=>$user,
                         ];
                     }else{
-                        $result = DB::select("select name from vendors where email = '$email'");
+                        $result = DB::select("select * from vendors where email = '$email'");
                         if($result){
                             foreach($result as $user)
                             $this->send($email, $user->name, $code);
                             return [
                                 "status"=>200,
                                 "message"=>'Email Sent Successfully',
+                                "user"=>$user,
                             ];
                         }else{
                             return [
@@ -85,9 +89,5 @@ class verifyCode extends Controller
             $code->to($details['recipient'])
                     ->subject($details['subject']);
         });
-        return [
-            "status"=>200,
-            "message"=>'Email Sended Successfully',
-        ];
     }
 }
