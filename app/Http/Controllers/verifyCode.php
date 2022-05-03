@@ -26,19 +26,39 @@ class verifyCode extends Controller
         }else{
             $result = DB::select("select name from companies where email = '$email'");
             if($result){
-                $this->send($email, $result, $code);
+                foreach($result as $user)
+                $this->send($email, $user->name, $code);
+                return [
+                    "status"=>200,
+                    "message"=>'Email Sent Successfully',
+                ];
             }else{
                 $result = DB::select("select name from dispatchers where email = '$email'");
                 if($result){
-                    $this->send($email, $result, $code);
+                    foreach($result as $user)
+                    $this->send($email, $user->name, $code);
+                    return [
+                        "status"=>200,
+                        "message"=>'Email Sent Successfully',
+                    ];
                 }else{
                     $result = DB::select("select name from drivers where email = '$email'");
                     if($result){
-                        $this->send($email, $result, $code);
+                        foreach($result as $user)
+                        $this->send($email, $user->name, $code);
+                        return [
+                            "status"=>200,
+                            "message"=>'Email Sent Successfully',
+                        ];
                     }else{
                         $result = DB::select("select name from vendors where email = '$email'");
                         if($result){
-                            $this->send($email, $result, $code);
+                            foreach($result as $user)
+                            $this->send($email, $user->name, $code);
+                            return [
+                                "status"=>200,
+                                "message"=>'Email Sent Successfully',
+                            ];
                         }else{
                             return [
                                 "status"=>404,
