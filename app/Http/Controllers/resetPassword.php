@@ -19,7 +19,7 @@ class resetPassword extends Controller
         if($type == ''){
             return [
                 "status"=>405,
-                "message"=>'type is Required [ owner - driver - dispatcher - vendor ]',
+                "message"=>'type is Required [ Owner - Driver - Dispatcher - Vendor ]',
             ];
         }else if($id == ''){
             return [
@@ -32,7 +32,7 @@ class resetPassword extends Controller
                 "message"=>'password is Required',
             ];
         }else{
-            if($type == 'owner' && !is_null(company::find($id))){
+            if($type == 'Owner' && !is_null(company::find($id))){
                 $company = company::find($id);
                 $result = $company->update($request->all());
                 if($result){
@@ -46,7 +46,7 @@ class resetPassword extends Controller
                         "message"=>'Not Found',
                     ];
                 }
-            }else if($type == 'dispatcher' && !is_null(dispatcher::find($id))){
+            }else if($type == 'Dispatcher' && !is_null(dispatcher::find($id))){
                 $dispatcher = dispatcher::find($id);
                 $result = $dispatcher->update($request->all());
                 if($result){
@@ -60,7 +60,7 @@ class resetPassword extends Controller
                         "message"=>'Not Found',
                     ];
                 }
-            }else if($type == 'driver' && !is_null(driver::find($id))){
+            }else if($type == 'Driver' && !is_null(driver::find($id))){
                 $driver = driver::find($id);
                 $result = $driver->update($request->all());
                 if($result){
@@ -74,7 +74,7 @@ class resetPassword extends Controller
                         "message"=>'Not Found',
                     ];
                 }
-            }else if($type == 'vendor' && !is_null(vendor::find($id))){
+            }else if($type == 'Vendor' && !is_null(vendor::find($id))){
                 $vendor = vendor::find($id);
                 $result = $vendor->update($request->all());
                 if($result){
