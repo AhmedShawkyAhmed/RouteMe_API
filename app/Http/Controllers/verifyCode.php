@@ -31,7 +31,8 @@ class verifyCode extends Controller
                 return [
                     "status"=>200,
                     "message"=>'Email Sent Successfully',
-                    "user"=>$user,
+                    "type"=>$user->type,
+                    "id"=>$user->id,
                 ];
             }else{
                 $result = DB::select("select * from dispatchers where email = '$email'");
@@ -41,7 +42,8 @@ class verifyCode extends Controller
                     return [
                         "status"=>200,
                         "message"=>'Email Sent Successfully',
-                        "user"=>$user,
+                        "type"=>$user->type,
+                        "id"=>$user->id,
                     ];
                 }else{
                     $result = DB::select("select * from drivers where email = '$email'");
@@ -51,7 +53,8 @@ class verifyCode extends Controller
                         return [
                             "status"=>200,
                             "message"=>'Email Sent Successfully',
-                            "user"=>$user,
+                            "type"=>$user->type,
+                            "id"=>$user->id,
                         ];
                     }else{
                         $result = DB::select("select * from vendors where email = '$email'");
@@ -61,7 +64,8 @@ class verifyCode extends Controller
                             return [
                                 "status"=>200,
                                 "message"=>'Email Sent Successfully',
-                                "user"=>$user,
+                                "type"=>$user->type,
+                                "id"=>$user->id,
                             ];
                         }else{
                             return [
