@@ -30,9 +30,9 @@ class verifyCode extends Controller
                 $this->send($email, $user->name, $code);
                 return [
                     "status"=>200,
-                    "message"=>'Email Sent Successfully',
-                    "type"=>$user->type,
                     "id"=>$user->id,
+                    "type"=>$user->type,
+                    "message"=>'Email Sent Successfully',
                 ];
             }else{
                 $result = DB::select("select * from dispatchers where email = '$email'");
@@ -41,9 +41,9 @@ class verifyCode extends Controller
                     $this->send($email, $user->name, $code);
                     return [
                         "status"=>200,
-                        "message"=>'Email Sent Successfully',
-                        "type"=>$user->type,
                         "id"=>$user->id,
+                        "type"=>$user->type,
+                        "message"=>'Email Sent Successfully',
                     ];
                 }else{
                     $result = DB::select("select * from drivers where email = '$email'");
@@ -52,9 +52,9 @@ class verifyCode extends Controller
                         $this->send($email, $user->name, $code);
                         return [
                             "status"=>200,
-                            "message"=>'Email Sent Successfully',
-                            "type"=>$user->type,
                             "id"=>$user->id,
+                            "type"=>$user->type,
+                            "message"=>'Email Sent Successfully',
                         ];
                     }else{
                         $result = DB::select("select * from vendors where email = '$email'");
@@ -63,9 +63,9 @@ class verifyCode extends Controller
                             $this->send($email, $user->name, $code);
                             return [
                                 "status"=>200,
-                                "message"=>'Email Sent Successfully',
-                                "type"=>$user->type,
                                 "id"=>$user->id,
+                                "type"=>$user->type,
+                                "message"=>'Email Sent Successfully',
                             ];
                         }else{
                             return [
