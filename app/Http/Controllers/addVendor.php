@@ -55,12 +55,14 @@ class addVendor extends Controller
                     "status"=>405,
                     "message"=>'Phone Number is Required',
                 ];
-            }else if($vendor->brandImage ==''){
-                return [
-                    "status"=>405,
-                    "message"=>'Brand Image is Required',
-                ];
-            }else{
+            }
+            // else if($vendor->brandImage ==''){
+            //     return [
+            //         "status"=>405,
+            //         "message"=>'Brand Image is Required',
+            //     ];
+            // }
+            else{
                 $result = $vendor->save();
                 if($result){
                     return [
