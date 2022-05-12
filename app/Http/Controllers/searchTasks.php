@@ -32,7 +32,7 @@ class searchTasks extends Controller
                     ];
                 }
             }else{
-                $result = DB::select("select * from tasks where dispatcherId  = $dispatcherId and id = taskId");
+                $result = DB::select("select * from tasks where dispatcherId  = $dispatcherId and id = $taskId");
                 if ($result){
                     return [
                         "status"=>200,
