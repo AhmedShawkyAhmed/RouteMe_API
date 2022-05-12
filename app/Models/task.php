@@ -18,7 +18,7 @@ class task extends Model
         'itemCount',
         'price',
         'vendorId',
-        'branchId',
+        'branch',
         'lon',
         'lat',
         'address',
