@@ -13,13 +13,15 @@ class createTask extends Controller
 
         $task->orderNumber = $request->input('orderNumber');
         $task->driverId = $request->input('driverId');
+        $task->driver = $request->input('driver');
         $task->dispatcherId = $request->input('dispatcherId');
         $task->clientName = $request->input('clientName');
         $task->clientPhone = $request->input('clientPhone');
         $task->itemCount = $request->input('itemCount');
         $task->price = $request->input('price');
         $task->vendorId = $request->input('vendorId');
-        $task->branchId = $request->input('branchId');
+        $task->vendor = $request->input('vendor');
+        $task->branch = $request->input('branch');
         $task->lon = $request->input('lon');
         $task->lat = $request->input('lat');
         $task->address = $request->input('address');
@@ -66,6 +68,16 @@ class createTask extends Controller
                     "status"=>405,
                     "message"=>'itemCount is Required',
                 ];
+            }else if($task->driver ==''){
+                return [
+                    "status"=>405,
+                    "message"=>'driver is Required',
+                ];
+            }else if($task->vendor ==''){
+                return [
+                    "status"=>405,
+                    "message"=>'vendor is Required',
+                ];
             }else if($task->price ==''){
                 return [
                     "status"=>405,
@@ -76,10 +88,10 @@ class createTask extends Controller
                     "status"=>405,
                     "message"=>'vendorId is Required',
                 ];
-            }else if($task->branchId ==''){
+            }else if($task->branch ==''){
                 return [
                     "status"=>405,
-                    "message"=>'branchId is Required',
+                    "message"=>'branch is Required',
                 ];
             }else if($task->lon ==''){
                 return [
