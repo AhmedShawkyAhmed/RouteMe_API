@@ -8,7 +8,6 @@ use App\Http\Controllers\verifyCode;
 use App\Http\Controllers\getBranches;
 use App\Http\Controllers\addBranch;
 use App\Http\Controllers\createTask;
-use App\Http\Controllers\getDispatcherTasks;
 use App\Http\Controllers\getDriverTasks;
 use App\Http\Controllers\getUsers;
 use App\Http\Controllers\getVendorOrders;
@@ -19,6 +18,7 @@ use App\Http\Controllers\requestPickup;
 use App\Http\Controllers\getPreviousTasks;
 use App\Http\Controllers\resetPassword;
 use App\Http\Controllers\searchOrders;
+use App\Http\Controllers\searchTasks;
 use App\Http\Controllers\taskStatus;
 use App\Http\Controllers\updateUser;
 use App\Http\Controllers\updateUserStatus;
@@ -68,7 +68,7 @@ Route::post("getBranches",[getBranches::class,'getBranches']);
 
 Route::post("addBranch",[addBranch::class,'addBranch']);
 
-Route::post("getDispatcherTasks",[getDispatcherTasks::class,'getDispatcherTasks']);
+Route::post("searchTasks",[searchTasks::class,'searchTasks']);
 
 Route::post("getUsers",[getUsers::class,'getUsers']);
 
