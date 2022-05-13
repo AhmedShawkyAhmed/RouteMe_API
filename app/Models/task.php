@@ -10,6 +10,7 @@ class task extends Model
     use HasFactory;
     protected $table = 'tasks';
     protected $fillable = [
+        'server',
         'orderNumber',
         'driverId',
         'driver',
