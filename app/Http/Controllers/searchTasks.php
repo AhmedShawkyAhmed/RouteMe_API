@@ -49,7 +49,7 @@ class searchTasks extends Controller
                 }
             }else{
                 if($taskId == ''){
-                    $result = DB::select("select * from tasks where server = $server");
+                    $result = DB::select("select * from tasks where server = '$server'");
                     if ($result){
                         return [
                             "status"=>200,
@@ -62,7 +62,7 @@ class searchTasks extends Controller
                         ];
                     }
                 }else{
-                    $result = DB::select("select * from tasks where server = $server and id = $taskId");
+                    $result = DB::select("select * from tasks where server = '$server' and id = $taskId");
                     if ($result){
                         return [
                             "status"=>200,

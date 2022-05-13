@@ -19,7 +19,7 @@ class searchOrders extends Controller
             ];
         }else{
             if($orderId == ''){
-                $result = DB::select("select * from orders where server = $server");
+                $result = DB::select("select * from orders where server = '$server'");
     
                 if ($result){
                     return [
@@ -33,7 +33,7 @@ class searchOrders extends Controller
                     ];
                 }
             }else{
-                $result = DB::select("select * from orders where id = $orderId and server = $server");
+                $result = DB::select("select * from orders where id = $orderId and server = '$server'");
     
                 if ($result){
                     return [
