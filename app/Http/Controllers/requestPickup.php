@@ -12,6 +12,7 @@ class requestPickup extends Controller
         $pickUp = new order();
     
         $pickUp->clientName = $request->input('clientName');
+        $pickUp->server = $request->input('server');
         $pickUp->clientPhone = $request->input('clientPhone');
         $pickUp->itemCount = $request->input('itemCount');
         $pickUp->price = $request->input('price');
@@ -37,6 +38,11 @@ class requestPickup extends Controller
             return [
                 "status"=>405,
                 "message"=>'Item count is Required',
+            ];
+        }else if($pickUp->server ==''){
+            return [
+                "status"=>405,
+                "message"=>'server is Required',
             ];
         }else if($pickUp->price ==''){
             return [
