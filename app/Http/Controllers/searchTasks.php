@@ -13,70 +13,62 @@ class searchTasks extends Controller
         $taskId = $request->input('taskId');
         $server = $request->input('server');
 
-        if($dispatcherId == ''){
-            return [
-                "status"=>405,
-                "message"=>'dispatcherId is Required',
-            ];
-        }else{
-            if($server == ''){
-                if($taskId == ''){
-                    $result = DB::select("select * from tasks where dispatcherId  = $dispatcherId");
-                    if ($result){
-                        return [
-                            "status"=>200,
-                            "tasks"=>$result,
-                        ];
-                    }else {
-                        return [
-                            "status"=>404,
-                            "message"=>'No Task Found',
-                        ];
-                    }
-                }else{
-                    $result = DB::select("select * from tasks where dispatcherId  = $dispatcherId and id = $taskId");
-                    if ($result){
-                        return [
-                            "status"=>200,
-                            "tasks"=>$result,
-                        ];
-                    }else {
-                        return [
-                            "status"=>404,
-                            "message"=>'No Task Found',
-                        ];
-                    }
+        if($server == ''){
+            if($taskId == ''){
+                $result = DB::select("select * from tasks where dispatcherId  = $dispatcherId");
+                if ($result){
+                    return [
+                        "status"=>200,
+                        "tasks"=>$result,
+                    ];
+                }else {
+                    return [
+                        "status"=>404,
+                        "message"=>'No Task Found',
+                    ];
                 }
             }else{
-                if($taskId == ''){
-                    $result = DB::select("select * from tasks where server = '$server'");
-                    if ($result){
-                        return [
-                            "status"=>200,
-                            "tasks"=>$result,
-                        ];
-                    }else {
-                        return [
-                            "status"=>404,
-                            "message"=>'No Task Found',
-                        ];
-                    }
-                }else{
-                    $result = DB::select("select * from tasks where server = '$server' and id = $taskId");
-                    if ($result){
-                        return [
-                            "status"=>200,
-                            "tasks"=>$result,
-                        ];
-                    }else {
-                        return [
-                            "status"=>404,
-                            "message"=>'No Task Found',
-                        ];
-                    }
+                $result = DB::select("select * from tasks where dispatcherId  = $dispatcherId and id = $taskId");
+                if ($result){
+                    return [
+                        "status"=>200,
+                        "tasks"=>$result,
+                    ];
+                }else {
+                    return [
+                        "status"=>404,
+                        "message"=>'No Task Found',
+                    ];
                 }
             }
-            
+        }else{
+            if($taskId == ''){
+                $result = DB::select("select * from tasks where server = '$server'");
+                if ($result){
+                    return [
+                        "status"=>200,
+                        "tasks"=>$result,
+                    ];
+                }else {
+                    return [
+                        "status"=>404,
+                        "message"=>'No Task Found',
+                    ];
+                }
+            }else{
+                $result = DB::select("select * from tasks where server = '$server' and id = $taskId");
+                if ($result){
+                    return [
+                        "status"=>200,
+                        "tasks"=>$result,
+                    ];
+                }else {
+                    return [
+                        "status"=>404,
+                        "message"=>'No Task Found',
+                    ];
+                }
+            }
         }
     }
 }
