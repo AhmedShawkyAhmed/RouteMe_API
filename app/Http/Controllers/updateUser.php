@@ -33,7 +33,7 @@ class updateUser extends Controller
             }else if($type == 'vendor'){
                 return [
                     "status"=>405,
-                    "message"=>'select what to update [ brandName - email - brandImage ]',
+                    "message"=>'select what to update [ brandName - email - phone ]',
                 ];
             }
         }else{
