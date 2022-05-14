@@ -14,6 +14,7 @@ use App\Http\Controllers\getVendorOrders;
 use App\Http\Controllers\loginMobile;
 use App\Http\Controllers\loginWeb;
 use App\Http\Controllers\register;
+use App\Http\Controllers\taskOrders;
 use App\Http\Controllers\requestPickup;
 use App\Http\Controllers\getPreviousTasks;
 use App\Http\Controllers\resetPassword;
@@ -83,3 +84,5 @@ Route::post("getPreviousTasks",[getPreviousTasks::class,'getPreviousTasks']);
 Route::post("taskStatus",[taskStatus::class,'taskStatus']);
 
 Route::post("updateUserStatus",[updateUserStatus::class,'updateUserStatus']);
+
+Route::post("taskOrders",[taskOrders::class,'taskOrders']);
