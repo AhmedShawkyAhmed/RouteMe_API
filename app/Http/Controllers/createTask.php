@@ -11,6 +11,7 @@ class createTask extends Controller
     public function createTask(Request $request){
         $task = new task();
 
+        $task->server = $request->input('server');
         $task->orderNumber = $request->input('orderNumber');
         $task->driverId = $request->input('driverId');
         $task->driver = $request->input('driver');
