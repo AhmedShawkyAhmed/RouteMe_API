@@ -41,6 +41,11 @@ class createTask extends Controller
                 "status"=>405,
                 "message"=>'driverId is Required',
             ];
+        }else if($task->server ==''){
+            return [
+                "status"=>405,
+                "message"=>'server is Required',
+            ];
         }else if($task->dispatcherId ==''){
             return [
                 "status"=>405,
